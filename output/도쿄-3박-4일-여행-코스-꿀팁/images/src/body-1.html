@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .map {
+    position: relative;
+    height: 650px;
+    margin-top: 32px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: var(--panel);
+    overflow: hidden;
+  }
+  .bay { position: absolute; inset: 0; }
+  .zone {
+    position: absolute;
+    padding: 20px 24px 22px;
+    border: 3px solid var(--c);
+    border-radius: 22px;
+    background: #1d2442;
+  }
+  .badge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 999px;
+    background: var(--c);
+    color: #14182b;
+    font-size: 25px;
+    font-weight: 800;
+  }
+  .places {
+    margin-top: 12px;
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 1.34;
+  }
+  .choice {
+    position: absolute;
+    left: 574px;
+    top: 372px;
+    width: 96px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+  }
+  .airport {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 22px 10px 12px;
+    border-radius: 999px;
+    border: 3px solid var(--day4);
+    background: #1d2442;
+    font-size: 31px;
+    font-weight: 700;
+  }
+  .airport .badge { --c: var(--day4); }
+  .day1 { --c: var(--day1); left: 340px; top: 34px; width: 340px; }
+  .day2 { --c: var(--day2); left: 36px; top: 170px; width: 264px; }
+  .day3a { --c: var(--day3a); left: 340px; top: 266px; width: 226px; }
+  .day3b { --c: var(--day3b); left: 676px; top: 330px; width: 216px; }
+  .narita { right: 30px; top: 120px; }
+  .haneda { left: 120px; top: 530px; }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 22px;
+  }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <div class="title">도쿄 3박 4일, 하루에 한 권역씩</div>
+  <div class="lead">셋째 날은 A와 B 중 하나를 고르는 예시 코스</div>
+
+  <div class="map">
+    <svg class="bay" viewBox="0 0 966 650" aria-hidden="true" preserveAspectRatio="none">
+      <path d="M966 650 H440 C520 575 600 555 700 540 C800 525 880 510 966 495 Z" fill="#26325c" opacity=".55"/>
+    </svg>
+
+    <div class="zone day1">
+      <span class="badge">1일차</span>
+      <div class="places">아사쿠사·우에노<br>스카이트리</div>
+    </div>
+
+    <div class="zone day2">
+      <span class="badge">2일차</span>
+      <div class="places">메이지 신궁<br>하라주쿠<br>시부야</div>
+    </div>
+
+    <div class="zone day3a">
+      <span class="badge">3일차 A</span>
+      <div class="places">쓰키지<br>팀랩<br>긴자</div>
+    </div>
+
+    <div class="choice">둘 중<br>하나</div>
+
+    <div class="zone day3b">
+      <span class="badge">3일차 B</span>
+      <div class="places">디즈니</div>
+    </div>
+
+    <div class="airport narita">
+      <span class="badge">4일차</span>나리타
+    </div>
+    <div class="airport haneda">
+      <span class="badge">4일차</span>하네다
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="note">실제 축척 지도가 아닌 설명용 그림이에요. 공식 추천 코스가 아니라 저희가 짠 예시예요.</div>
+  </div>
+</div>
+</body>
+</html>

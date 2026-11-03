@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+  .head {
+    padding: 18px 28px;
+    background: var(--c);
+    color: #14182b;
+    font-size: 36px;
+    font-weight: 800;
+  }
+  .narita { --c: var(--day3a); }
+  .haneda { --c: var(--day2); }
+  .row {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 22px 28px;
+    border-top: 1px solid var(--line);
+  }
+  .row:first-of-type { border-top: 0; }
+  .how { font-size: 30px; font-weight: 700; line-height: 1.3; }
+  .to { font-size: 25px; font-weight: 500; color: var(--sub); line-height: 1.35; }
+  .vals {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .price { font-size: 38px; font-weight: 800; color: var(--c); letter-spacing: -0.01em; white-space: nowrap; }
+  .time { font-size: 26px; font-weight: 600; white-space: nowrap; }
+  .basis { margin-top: 6px; font-size: 23px; font-weight: 500; color: var(--day4); }
+  .foot { margin-top: 26px; }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <div class="title">공항에서 시내까지, 나리타와 하네다</div>
+
+  <div class="cols">
+    <div class="col narita">
+      <div class="head">나리타</div>
+      <div class="row">
+        <div class="how">스카이라이너</div>
+        <div class="to">우에노·닛포리</div>
+        <div class="vals"><span class="price">2,580엔</span><span class="time">약 41분</span></div>
+      </div>
+      <div class="row">
+        <div class="how">N'EX</div>
+        <div class="to">도쿄역</div>
+        <div class="vals"><span class="price">3,140엔</span><span class="time">최단 53분</span></div>
+      </div>
+      <div class="row">
+        <div class="how">N'EX</div>
+        <div class="to">신주쿠</div>
+        <div class="vals"><span class="price">3,330엔</span><span class="time">약 1시간 24분</span></div>
+      </div>
+      <div class="row">
+        <div class="how">리무진버스</div>
+        <div class="to">도쿄역</div>
+        <div class="vals"><span class="price">3,100엔</span><span class="time">약 1시간 40분</span></div>
+      </div>
+    </div>
+
+    <div class="col haneda">
+      <div class="head">하네다</div>
+      <div class="row">
+        <div class="how">케이큐</div>
+        <div class="to">시나가와</div>
+        <div class="vals"><span class="price">330엔</span><span class="time">약 15분</span></div>
+        <div class="basis">2025년 5월 기준</div>
+      </div>
+      <div class="row">
+        <div class="how">모노레일</div>
+        <div class="to">하마마쓰초</div>
+        <div class="vals"><span class="price">520엔</span><span class="time">약 15~20분</span></div>
+      </div>
+      <div class="row">
+        <div class="how">리무진버스</div>
+        <div class="to">도쿄역</div>
+        <div class="vals"><span class="price">1,200엔</span><span class="time">40~55분</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot note">성인 편도, 2026년 11월 3일 기준 조사값. 하네다 쪽 요금은 기준 시점이 서로 달라요.</div>
+</div>
+</body>
+</html>

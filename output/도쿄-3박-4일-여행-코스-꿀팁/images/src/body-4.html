@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .flow {
+    display: grid;
+    grid-template-columns: 208px 40px 236px 40px 212px 40px 192px;
+    align-items: stretch;
+    margin-top: 36px;
+  }
+  .arrow {
+    align-self: center;
+    justify-self: center;
+    border-left: 22px solid rgba(255, 255, 255, .7);
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+  }
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 16px;
+    border-radius: 18px;
+    background: var(--panel);
+    border: 2px solid var(--line);
+  }
+  .num {
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--sub);
+  }
+  .box h3 { margin-top: 8px; font-size: 31px; font-weight: 800; line-height: 1.26; }
+  .box p { margin-top: 10px; font-size: 25px; font-weight: 500; line-height: 1.36; color: #e6e9f2; }
+
+  /* 강조: 수속 구간 */
+  .focus {
+    border: 4px solid var(--day4);
+    background: rgba(255, 213, 79, .1);
+  }
+  .judge { display: flex; flex-direction: column; gap: 12px; padding: 20px 14px; }
+  .judge h3 { margin-top: 0; }
+  .sig {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.28;
+    color: #14182b;
+  }
+  .sig.green { background: #4dd0a5; }
+  .sig.red { background: #ff8a80; }
+
+  /* 수속 뒤 두 항목: 화살표로 잇지 않습니다 */
+  .after {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 10px;
+    border: 3px dashed var(--line);
+    border-radius: 18px;
+    text-align: center;
+  }
+  .after .label { font-size: 25px; font-weight: 700; color: var(--sub); }
+  .after .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border-radius: 12px;
+    background: var(--panel);
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.26;
+  }
+
+  .span {
+    display: grid;
+    grid-template-columns: 208px 40px 488px 40px 192px;
+    margin-top: 16px;
+  }
+  .bracket {
+    grid-column: 3;
+    padding-top: 12px;
+    border-top: 5px solid var(--day4);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--day4);
+  }
+  .warn {
+    margin-top: 28px;
+    padding: 20px 28px;
+    border-radius: 18px;
+    background: rgba(255, 107, 107, .16);
+    border: 3px solid var(--warn);
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+  }
+  .foot { margin-top: 20px; }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <div class="title">면세 수속이 수하물 위탁보다 먼저예요</div>
+  <div class="lead">일본 면세 리펀드, 2026년 11월 1일 구매분부터</div>
+
+  <div class="flow">
+    <div class="box">
+      <span class="num">매장</span>
+      <h3>세금 포함 결제</h3>
+    </div>
+    <div class="arrow"></div>
+    <div class="box focus">
+      <span class="num">공항 체크인 전</span>
+      <h3>단말기에<br>여권 제시</h3>
+      <p>구매품 소지</p>
+    </div>
+    <div class="arrow"></div>
+    <div class="box focus judge">
+      <h3>판정</h3>
+      <div class="sig green">녹색<br>통과</div>
+      <div class="sig red">빨간색<br>세관 검사</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="after">
+      <div class="label">수속 뒤</div>
+      <div class="item">소비세<br>상당액 환급</div>
+      <div class="item">수하물 위탁</div>
+    </div>
+  </div>
+
+  <div class="span">
+    <div class="bracket">수하물을 맡기기 전에 끝내기</div>
+  </div>
+
+  <div class="warn">수하물을 맡긴 뒤에는 수속할 수 없어요</div>
+  <div class="foot note">환급과 수하물 위탁의 선후는 정해 그리지 않았어요.</div>
+</div>
+</body>
+</html>

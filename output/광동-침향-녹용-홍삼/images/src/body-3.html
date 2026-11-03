@@ -1,0 +1,65 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+.wrap { margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; }
+.col { display:flex; flex-direction:column; }
+.col .pack { flex:1; }
+.col .cap { font-size:24px; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.col.gen .cap { color:#f2c46d; }
+.col.hff .cap { color:#6ee7c8; }
+.pack { background:#f3f1ea; color:#2a2a2a; border-radius:14px; padding:26px 24px; height:100%; display:flex; flex-direction:column; gap:14px; }
+.pack .top { font-size:16px; color:#888; letter-spacing:2px; }
+.row { position:relative; border:1.5px solid #c9c4b6; border-radius:8px; padding:12px 14px; font-size:19px; line-height:1.45; background:#fff; }
+.row .k { font-size:15px; color:#8a8577; display:block; margin-bottom:2px; }
+.row .v { font-weight:700; }
+.row:has(.num) { padding-left:34px; }
+.row.ph { border:2px dashed #9a9585; background:#ebe8de; color:#6d685a; text-align:center; font-size:18px; font-weight:600; padding:16px 10px; }
+.marks { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.num { position:absolute; top:-14px; left:-14px; width:34px; height:34px; border-radius:50%; background:#16213e; color:#6ee7c8; border:2px solid #6ee7c8; font-weight:800; font-size:18px; display:flex; align-items:center; justify-content:center; }
+.missing { color:#a09a8a; font-style:normal; }
+.filler { height:12px; border-radius:6px; background:#dcd8cc; }
+.filler.s { width:70%; }
+.legend { margin-top:30px; display:grid; grid-template-columns:1fr; gap:10px; }
+.li { display:flex; gap:14px; align-items:center; font-size:21px; color:#d9deee; }
+.li .n { width:30px; height:30px; flex:none; border-radius:50%; border:2px solid #6ee7c8; color:#6ee7c8; font-weight:800; font-size:16px; display:flex; align-items:center; justify-content:center; }
+.foot b { color:#c9d0e6; font-weight:600; }
+</style></head><body>
+<div id="cap" class="card">
+  <div class="kicker"><span class="mono">03</span> · 포장 뒷면 확인 위치</div>
+  <h1>일반식품과 건강기능식품,<br>포장 뒷면에서 볼 다섯 곳</h1>
+  <div class="wrap">
+    <div class="col gen">
+      <div class="cap">일반식품 예시</div>
+      <div class="pack">
+        <div class="top mono">SAMPLE LABEL</div>
+        <div class="row"><span class="k">식품유형</span><span class="v">기타가공품</span></div>
+        <div class="row"><span class="k">원재료명 및 함량</span><div class="filler"></div><div class="filler s" style="margin-top:8px"></div></div>
+        <div class="row"><span class="k">기능성 문구</span><span class="missing">표시 없음</span></div>
+        <div class="row"><span class="k">기능성분 함량</span><span class="missing">표시 없음</span></div>
+        <div class="row"><span class="k">섭취 방법 · 보관</span><div class="filler s"></div></div>
+      </div>
+    </div>
+    <div class="col hff">
+      <div class="cap">건강기능식품 예시</div>
+      <div class="pack">
+        <div class="top mono">SAMPLE LABEL</div>
+        <div class="row"><span class="num">1</span><span class="k">식품유형</span><span class="v">건강기능식품</span></div>
+        <div class="marks">
+          <div class="row ph"><span class="num">2</span>인정 마크 위치</div>
+          <div class="row ph"><span class="num">3</span>GMP 마크 위치</div>
+        </div>
+        <div class="row"><span class="num">4</span><span class="k">기능성 문구</span><span class="v">~에 도움을 줄 수 있음</span></div>
+        <div class="row"><span class="num">5</span><span class="k">기능성분 함량</span><span class="v">진세노사이드 Rg1+Rb1+Rg3 합 OOmg</span></div>
+        <div class="row"><span class="k">섭취 방법 · 보관</span><div class="filler s"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="li"><span class="n">1</span>식품유형 칸: '기타가공품', '액상차', '혼합음료'면 일반식품</div>
+    <div class="li"><span class="n">2</span>'건강기능식품' 문구와 인정 도안</div>
+    <div class="li"><span class="n">3</span>GMP 마크</div>
+    <div class="li"><span class="n">4</span>"~에 도움을 줄 수 있음" 형태의 기능성 표시</div>
+    <div class="li"><span class="n">5</span>기능성분 함량 (홍삼은 1일 섭취량 기준 진세노사이드 합)</div>
+  </div>
+  <div class="foot">실제 제품이 아닌 가상 레이아웃이에요. <b>실제 건강기능식품 도안은 식약처 공식 도안을 참고하세요.</b></div>
+</div>
+</body></html>

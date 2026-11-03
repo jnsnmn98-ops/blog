@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  #canvas {
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .accent {
+    position: absolute;
+    top: 72px;
+    left: 72px;
+    width: 96px;
+    display: grid;
+    gap: 8px;
+  }
+  .accent i { display: block; height: 12px; border-radius: 6px; }
+  .title {
+    font-size: 116px;
+    font-weight: 800;
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+  }
+  .sub {
+    margin-top: 44px;
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <div class="accent" aria-hidden="true">
+    <i style="background:var(--claude)"></i>
+    <i style="background:var(--skill)"></i>
+    <i style="background:var(--sub)"></i>
+    <i style="background:var(--hook)"></i>
+    <i style="background:var(--mcp)"></i>
+  </div>
+  <div class="title">클로드 코드<br>핵심 기능<br>5가지란?</div>
+  <div class="sub">2026년 11월 기준 도입 순서</div>
+</div>
+</body>
+</html>

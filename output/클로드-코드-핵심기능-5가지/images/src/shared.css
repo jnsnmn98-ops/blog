@@ -1,0 +1,51 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+:root {
+  --bg-a: #1a1a2e;
+  --bg-b: #16213e;
+  --ink: #ffffff;
+  --muted: #b8bfd0;
+  --line: #3a4468;
+  --panel: rgba(255, 255, 255, 0.05);
+  --claude: #7c9bff;
+  --skill: #2dd4bf;
+  --sub: #b197fc;
+  --hook: #fbbf24;
+  --mcp: #f783ac;
+  --on-color: #12172b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: var(--bg-a); }
+
+body {
+  width: 1080px;
+  font-family: Pretendard, sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+#canvas {
+  position: relative;
+  width: 1080px;
+  padding: 64px;
+  background: linear-gradient(135deg, var(--bg-a), var(--bg-b));
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.lead {
+  margin-top: 14px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--muted);
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  #canvas {
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+  }
+  h1 { font-size: 60px; text-align: center; }
+  .stack {
+    flex: 1;
+    margin-top: 52px;
+    display: grid;
+    grid-auto-rows: 1fr;
+    gap: 16px;
+  }
+  .layer {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--panel);
+    border: 2px solid var(--c);
+  }
+  .name {
+    display: flex;
+    align-items: center;
+    padding-left: 36px;
+    background: var(--c);
+    color: var(--on-color);
+    font-size: 44px;
+    font-weight: 800;
+  }
+  .role {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    font-size: 40px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <h1>서로 다른 문제를 맡는 다섯 층</h1>
+  <div class="stack">
+    <div class="layer" style="--c:var(--claude)"><div class="name">CLAUDE.md</div><div class="role">항상 켜진 맥락</div></div>
+    <div class="layer" style="--c:var(--skill)"><div class="name">스킬</div><div class="role">필요할 때 쓰는 지식</div></div>
+    <div class="layer" style="--c:var(--sub)"><div class="name">서브에이전트</div><div class="role">격리된 작업자</div></div>
+    <div class="layer" style="--c:var(--hook)"><div class="name">훅</div><div class="role">이벤트 자동 실행</div></div>
+    <div class="layer" style="--c:var(--mcp)"><div class="name">MCP</div><div class="role">외부 연결</div></div>
+  </div>
+</div>
+</body>
+</html>

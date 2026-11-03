@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  /* 막대 높이는 1줄 = 0.01px 비율. 60,000줄 = 600px */
+  .badge {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 12px;
+    background: var(--hook);
+    color: var(--on-color);
+    font-size: 34px;
+    font-weight: 800;
+  }
+  h1 { margin-top: 26px; }
+  .chart {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 370px 1fr;
+    column-gap: 40px;
+    align-items: end;
+    border-bottom: 3px solid var(--line);
+  }
+  .col { display: flex; flex-direction: column; align-items: flex-start; }
+  .total { font-size: 52px; font-weight: 800; margin-bottom: 14px; }
+  .barwrap { display: flex; align-items: flex-end; width: 100%; }
+  .bar { width: 220px; }
+  .bar i { display: block; width: 100%; font-style: normal; }
+  .notes { flex: 1; padding: 0 0 8px 24px; }
+  .note { font-size: 28px; font-weight: 700; line-height: 1.3; white-space: nowrap; }
+  .note small { display: block; font-size: 24px; font-weight: 500; color: var(--muted); }
+  .inside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--on-color);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .labels {
+    display: grid;
+    grid-template-columns: 370px 1fr;
+    column-gap: 40px;
+    margin-top: 16px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .result {
+    margin-top: 32px;
+    padding: 22px 28px;
+    border-radius: 14px;
+    background: var(--panel);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .result b { font-weight: 800; color: var(--hook); }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <span class="badge">가정, 실제 성과 아님</span>
+  <h1>긴 자료를 스킬로 옮기면</h1>
+  <div class="lead">가상 예시: 한 달 세션 100번, 절차를 쓰는 세션 10번</div>
+
+  <div class="chart">
+    <div class="col">
+      <div class="total">60,000줄</div>
+      <div class="barwrap">
+        <div class="bar">
+          <i style="height:600px;background:var(--claude);border-radius:10px 10px 0 0">
+            <span class="inside">600줄<br>× 100회</span>
+          </i>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="total">19,500줄</div>
+      <div class="barwrap">
+        <div class="bar">
+          <i style="height:45px;background:var(--skill);border-radius:10px 10px 0 0"></i>
+          <i style="height:150px;background:var(--claude)"></i>
+        </div>
+        <div class="notes">
+          <div class="note" style="color:var(--skill)">스킬 본문 4,500줄<small>450줄 × 10회</small></div>
+          <div class="note" style="color:var(--claude);margin-top:22px">CLAUDE.md 15,000줄<small>150줄 × 100회</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="labels">
+    <div>CLAUDE.md 600줄 유지</div>
+    <div>450줄을 스킬로 옮긴 뒤</div>
+  </div>
+  <div class="result">19,500 ÷ 60,000 = 32.5%, <b>불러오는 양이 약 3분의 1</b><br>줄 수는 토큰이 아니며, 구조를 보여 주기 위한 가정입니다.</div>
+</div>
+</body>
+</html>

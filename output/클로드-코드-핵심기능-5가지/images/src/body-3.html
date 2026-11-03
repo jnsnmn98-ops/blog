@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .flow { position: relative; height: 640px; margin-top: 44px; }
+  .panel {
+    position: absolute;
+    top: 0;
+    width: 400px;
+    height: 640px;
+    border-radius: 20px;
+    background: var(--panel);
+    border: 2px solid var(--c);
+  }
+  .panel.main { left: 0; --c: var(--claude); }
+  .panel.side { right: 0; --c: var(--sub); }
+  .head {
+    padding: 22px 28px;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--c);
+  }
+  .head small { margin-left: 8px; font-size: 26px; font-weight: 500; color: var(--muted); }
+  .card {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-size: 34px;
+    font-weight: 800;
+    background: var(--c);
+    color: var(--on-color);
+  }
+  .top { top: 100px; }
+  .bottom { top: 500px; }
+  .clean {
+    position: absolute;
+    top: 250px;
+    left: 28px;
+    right: 28px;
+    height: 212px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px dashed var(--line);
+    border-radius: 14px;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .output { position: absolute; top: 96px; left: 28px; right: 28px; }
+  .group { margin-bottom: 20px; }
+  .group b { display: block; margin-bottom: 12px; font-size: 30px; font-weight: 700; }
+  .group i {
+    display: block;
+    height: 14px;
+    margin-bottom: 11px;
+    border-radius: 7px;
+    background: var(--line);
+  }
+  .arrow { position: absolute; left: 400px; width: 152px; height: 112px; }
+  .arrow span {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .arrow svg { position: absolute; left: 0; top: 56px; }
+  .foot { margin-top: 32px; font-size: 32px; font-weight: 700; text-align: center; }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <h1>메인 대화에는 요약만 돌아옵니다</h1>
+  <div class="flow">
+    <div class="panel main">
+      <div class="head">메인 대화</div>
+      <div class="card top">작업 지시</div>
+      <div class="clean">메인 대화가<br>깨끗하게 유지됩니다</div>
+      <div class="card bottom">짧은 요약</div>
+    </div>
+
+    <div class="panel side">
+      <div class="head">서브에이전트<small>별도 창</small></div>
+      <div class="output">
+        <div class="group">
+          <b>검색 결과</b>
+          <i style="width:100%"></i><i style="width:82%"></i><i style="width:94%"></i><i style="width:76%"></i><i style="width:90%"></i>
+        </div>
+        <div class="group">
+          <b>로그</b>
+          <i style="width:88%"></i><i style="width:100%"></i><i style="width:70%"></i><i style="width:92%"></i><i style="width:84%"></i>
+        </div>
+      </div>
+      <div class="card bottom">요약 한 장</div>
+    </div>
+
+    <div class="arrow" style="top:100px">
+      <span>지시</span>
+      <svg width="152" height="30" viewBox="0 0 152 30" fill="none">
+        <path d="M8 15H136" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+        <path d="M124 4L142 15L124 26" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="arrow" style="top:500px">
+      <span>요약</span>
+      <svg width="152" height="30" viewBox="0 0 152 30" fill="none">
+        <path d="M16 15H144" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+        <path d="M28 4L10 15L28 26" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="foot">긴 출력은 별도 창에 남습니다</div>
+</div>
+</body>
+</html>

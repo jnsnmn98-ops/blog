@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 220px 1fr 64px 250px;
+    grid-template-rows: auto repeat(5, 112px);
+    column-gap: 14px;
+    row-gap: 14px;
+    align-items: stretch;
+  }
+  .th { font-size: 28px; font-weight: 700; color: var(--muted); align-self: end; }
+  .start, .later {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 14px;
+    line-height: 1.3;
+  }
+  .start {
+    grid-row: 2;
+    background: var(--claude);
+    color: var(--on-color);
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .later {
+    grid-row: 3 / 7;
+    border: 2px dashed var(--line);
+    color: var(--muted);
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0 16px;
+  }
+  .scene {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    border-radius: 14px;
+    background: var(--panel);
+    border: 2px solid var(--line);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .arrow { grid-column: 3; display: flex; align-items: center; justify-content: center; }
+  .feature {
+    grid-column: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--c);
+    color: var(--on-color);
+    font-size: 34px;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <h1>계기가 생길 때 하나씩 더합니다</h1>
+  <div class="lead">기능을 고르는 기준은 지금 겪는 장면입니다</div>
+  <div class="grid">
+    <div class="th" style="grid-column:2">이런 장면이 생기면</div>
+    <div class="th" style="grid-column:4;text-align:center">추가할 기능</div>
+
+    <div class="start">CLAUDE.md로<br>시작</div>
+    <div class="later">필요가 생길 때 하나씩</div>
+
+    <div class="scene" style="grid-row:2">규칙을 두 번 틀림</div>
+    <div class="arrow" style="grid-row:2"><svg width="64" height="30" viewBox="0 0 64 30" fill="none"><path d="M4 15H54" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><path d="M44 5L60 15L44 25" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="feature" style="grid-row:2;--c:var(--claude)">CLAUDE.md</div>
+
+    <div class="scene" style="grid-row:3">같은 절차 반복</div>
+    <div class="arrow" style="grid-row:3"><svg width="64" height="30" viewBox="0 0 64 30" fill="none"><path d="M4 15H54" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><path d="M44 5L60 15L44 25" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="feature" style="grid-row:3;--c:var(--skill)">스킬</div>
+
+    <div class="scene" style="grid-row:4">데이터 복사 반복</div>
+    <div class="arrow" style="grid-row:4"><svg width="64" height="30" viewBox="0 0 64 30" fill="none"><path d="M4 15H54" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><path d="M44 5L60 15L44 25" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="feature" style="grid-row:4;--c:var(--mcp)">MCP</div>
+
+    <div class="scene" style="grid-row:5">곁가지 출력이 대화를 덮음</div>
+    <div class="arrow" style="grid-row:5"><svg width="64" height="30" viewBox="0 0 64 30" fill="none"><path d="M4 15H54" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><path d="M44 5L60 15L44 25" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="feature" style="grid-row:5;--c:var(--sub)">서브에이전트</div>
+
+    <div class="scene" style="grid-row:6">매번 일어나야 함</div>
+    <div class="arrow" style="grid-row:6"><svg width="64" height="30" viewBox="0 0 64 30" fill="none"><path d="M4 15H54" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><path d="M44 5L60 15L44 25" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="feature" style="grid-row:6;--c:var(--hook)">훅</div>
+  </div>
+</div>
+</body>
+</html>

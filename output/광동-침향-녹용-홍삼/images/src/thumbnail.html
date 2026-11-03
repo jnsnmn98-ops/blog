@@ -1,0 +1,24 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+#cap { width:1080px; height:1080px; position:relative; background: linear-gradient(160deg,#1a1a2e 0%,#16213e 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+.accent { position:absolute; top:64px; left:64px; display:flex; align-items:center; gap:14px; }
+.accent .dots { display:flex; gap:8px; }
+.accent .dots span { width:18px; height:18px; border-radius:50%; }
+.accent .tag { font-size:22px; color:#9fb0d8; }
+.label { font-size:30px; font-weight:600; color:#6ee7c8; margin-bottom:34px; letter-spacing:1px; }
+.title { font-size:84px; font-weight:800; line-height:1.24; color:#fff; letter-spacing:-1.5px; }
+.title em { font-style:normal; color:#f2c46d; }
+.sub { margin-top:44px; font-size:34px; font-weight:500; color:#aab3c9; line-height:1.5; }
+.chips { margin-top:56px; display:flex; gap:16px; justify-content:center; }
+.chip { font-size:26px; font-weight:600; padding:12px 26px; border-radius:999px; border:2px solid rgba(255,255,255,0.18); color:#dfe5f5; }
+.chip b { color:#f2c46d; font-weight:800; }
+.chip.dim { color:#8f98b3; border-style:dashed; }
+</style></head><body>
+<div id="cap">
+  <div class="accent"><div class="dots"><span style="background:#f2c46d"></span><span style="background:#e58a6b"></span><span style="background:#6ee7c8;opacity:.5"></span></div><span class="tag mono">ingredients.check()</span></div>
+  <div class="label">원재료 표시로 읽는</div>
+  <div class="title">광동 침향환<br>프리미엄<br><em>침향·녹용·홍삼</em></div>
+  <div class="sub">함량과 건강기능식품 여부 정리</div>
+  <div class="chips"><div class="chip">침향분말 <b>16%</b></div><div class="chip">녹용분말 <b>10%</b></div><div class="chip dim">홍삼 함량 미공개</div></div>
+</div>
+</body></html>

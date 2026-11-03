@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  #canvas {
+    position: relative;
+    width: 1080px;
+    height: 1080px;
+    padding: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  /* 액센트: 점 4개(4일)를 선 3개(3박)로 이은 작은 경로 */
+  .accent { position: absolute; top: 72px; left: 72px; }
+  h1 {
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1.28;
+    letter-spacing: -0.025em;
+    color: #fff;
+  }
+  p {
+    margin-top: 44px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #c3c9d8;
+  }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <svg class="accent" width="190" height="34" viewBox="0 0 190 34" aria-hidden="true">
+    <line x1="17" y1="17" x2="173" y2="17" stroke="#ff8a65" stroke-width="4"/>
+    <circle cx="17" cy="17" r="13" fill="#ff8a65"/>
+    <circle cx="69" cy="17" r="13" fill="#ff8a65"/>
+    <circle cx="121" cy="17" r="13" fill="#ff8a65"/>
+    <circle cx="173" cy="17" r="13" fill="#ff8a65"/>
+  </svg>
+  <h1>도쿄 3박 4일<br>여행 코스,<br>2026년 바뀐<br>면세까지</h1>
+  <p>일정표 · 공항 이동 · 교통권 · 예약 순서 · 면세 리펀드</p>
+</div>
+</body>
+</html>

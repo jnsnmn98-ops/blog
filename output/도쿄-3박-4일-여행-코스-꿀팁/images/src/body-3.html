@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .axis {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 108px;
+    height: 5px;
+    background: rgba(255, 255, 255, .35);
+  }
+  .axis::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -11px;
+    border-left: 22px solid rgba(255, 255, 255, .6);
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+  }
+  .step { position: relative; display: flex; flex-direction: column; }
+  .when {
+    height: 88px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1.22;
+    color: var(--c);
+  }
+  .dot {
+    width: 34px;
+    height: 34px;
+    margin: 4px auto 26px;
+    border-radius: 50%;
+    background: var(--c);
+    position: relative;
+    z-index: 1;
+  }
+  .card {
+    flex: 1;
+    padding: 22px 18px;
+    border: 3px solid var(--c);
+    border-radius: 18px;
+    background: var(--panel);
+  }
+  .name { font-size: 31px; font-weight: 800; line-height: 1.25; }
+  .desc { margin-top: 12px; font-size: 25px; font-weight: 500; line-height: 1.38; color: #e6e9f2; }
+  .tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 13px;
+    border-radius: 999px;
+    border: 2px solid var(--c);
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--c);
+  }
+  .s1 { --c: var(--day3b); }
+  .s2 { --c: var(--day3a); }
+  .s3 { --c: var(--day4); }
+  .s4 { --c: var(--day2); }
+  /* 미확정 항목: 점선 */
+  .open .card { border-style: dashed; }
+  .open .dot { background: #1b2340; border: 4px dashed var(--c); }
+  .foot { margin-top: 28px; }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <div class="title">여행일 기준 예약 순서</div>
+  <div class="lead">공식 판매가 먼저 열리는 곳부터 잡아요</div>
+
+  <div class="timeline">
+    <div class="axis"></div>
+
+    <div class="step s1">
+      <div class="when">2개월 전<br>14:00</div>
+      <div class="dot"></div>
+      <div class="card">
+        <div class="name">디즈니</div>
+        <div class="desc">공식 판매 시작, 날짜 지정</div>
+      </div>
+    </div>
+
+    <div class="step s2">
+      <div class="when">2~3주 전</div>
+      <div class="dot"></div>
+      <div class="card">
+        <div class="name">팀랩</div>
+        <div class="desc">보더리스 주말·저녁 예약 권장</div>
+        <div class="tag">소스 조언</div>
+      </div>
+    </div>
+
+    <div class="step s3 open">
+      <div class="when">2주 전 또는<br>약 4주 전</div>
+      <div class="dot"></div>
+      <div class="card">
+        <div class="name">시부야 스카이</div>
+        <div class="desc">한 달 전부터 예약 화면 확인</div>
+        <div class="tag">미확정</div>
+      </div>
+    </div>
+
+    <div class="step s4">
+      <div class="when">여행 전</div>
+      <div class="dot"></div>
+      <div class="card">
+        <div class="name">스카이트리</div>
+        <div class="desc">온라인 구매, 현장은 장당 500엔 추가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot note">점선은 공식 확인을 못 한 미확정 항목이에요. 간격은 실제 기간과 비례하지 않아요.</div>
+</div>
+</body>
+</html>

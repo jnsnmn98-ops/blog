@@ -1,0 +1,10 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; background: #0f1426; }
+body { font-family: "Pretendard", sans-serif; color: #e8ecf8; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+.mono { font-family: "SF Mono", Menlo, Consolas, monospace; }
+.card { width: 1080px; padding: 72px 64px 56px; background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%); }
+.kicker { font-size: 20px; color: #8fa0c8; letter-spacing: 0.5px; margin-bottom: 14px; }
+.kicker .mono { color: #6ee7c8; }
+h1 { font-size: 44px; font-weight: 800; line-height: 1.3; color: #fff; }
+.foot { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 19px; color: #8a93b0; line-height: 1.6; }

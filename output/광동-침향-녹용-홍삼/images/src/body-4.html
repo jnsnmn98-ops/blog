@@ -1,0 +1,53 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+.grid { margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.c { border-radius:18px; padding:30px 26px 30px; background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.1); display:flex; flex-direction:column; }
+.ic { height:130px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:rgba(255,255,255,0.03); margin-bottom:24px; }
+.ic svg { width:120px; height:110px; }
+.name { font-size:34px; font-weight:800; color:#fff; }
+.han { font-size:18px; color:#7f89a8; margin-top:4px; }
+.def { margin-top:18px; font-size:22px; line-height:1.55; color:#e3e7f3; font-weight:600; }
+ul { list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:8px; }
+li { font-size:19px; color:#a6afca; line-height:1.5; padding-left:16px; position:relative; }
+li::before { content:""; position:absolute; left:0; top:12px; width:6px; height:6px; border-radius:50%; background:var(--a); }
+li sup { font-size:13px; color:#7f89a8; }
+.c1 { --a:#f2c46d; } .c2 { --a:#e58a6b; } .c3 { --a:#6ee7c8; }
+.c1 .name { color:#f2c46d; } .c2 .name { color:#e58a6b; } .c3 .name { color:#6ee7c8; }
+.foot div + div { margin-top:4px; }
+</style></head><body>
+<div id="cap" class="card">
+  <div class="kicker"><span class="mono">04</span> · 원료 정의</div>
+  <h1>침향 · 녹용 · 홍삼은 각각 무엇인가요</h1>
+  <div class="grid">
+    <div class="c c1">
+      <div class="ic"><svg viewBox="0 0 120 110" fill="none" stroke="#f2c46d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 30 L92 22 L100 80 L30 88 Z"/><path d="M34 42 C52 38 70 46 88 36"/><path d="M36 58 C54 52 72 62 92 52"/><path d="M38 74 C56 68 74 76 94 68"/>
+        <path d="M14 100 H106" stroke-dasharray="4 6" opacity=".6"/></svg></div>
+      <div class="name">침향</div><div class="han">沈香</div>
+      <div class="def">침향나무의 수지가 스며든 줄기 목재</div>
+      <ul><li>바깥면은 흑갈색</li><li>물에 가라앉음<sup> *</sup></li></ul>
+    </div>
+    <div class="c c2">
+      <div class="ic"><svg viewBox="0 0 120 110" fill="none" stroke="#e58a6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60 100 C58 80 56 64 52 48 C48 34 40 24 30 14"/><path d="M54 58 C66 50 78 38 84 22"/><path d="M50 40 C40 38 30 32 22 24"/><path d="M70 42 C80 40 92 34 98 28"/>
+        <path d="M30 14 l-3 -3 M84 22 l2 -4 M22 24 l-4 -2 M98 28 l4 -2" opacity=".7"/></svg></div>
+      <div class="name">녹용</div><div class="han">鹿茸</div>
+      <div class="def">수사슴의 골질화 전후 어린 뿔을 잘라 말린 것</div>
+      <ul><li>짧고 부드러운 털이 촘촘함</li></ul>
+    </div>
+    <div class="c c3">
+      <div class="ic"><svg viewBox="0 0 120 110" fill="none" stroke="#6ee7c8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60 10 V26"/><path d="M50 26 H70 C72 44 70 60 64 74 C62 82 60 92 58 102"/><path d="M50 26 C48 44 50 58 56 72"/>
+        <path d="M62 66 C72 72 82 82 90 96"/><path d="M54 70 C44 76 36 86 30 98"/>
+        <path d="M86 18 c4 4 4 8 0 12 M96 14 c4 6 4 12 0 18" opacity=".6"/></svg></div>
+      <div class="name">홍삼</div><div class="han">紅蔘</div>
+      <div class="def">인삼 뿌리를 찐 것</div>
+      <ul><li>건강기능식품은 4년근 이상<sup> **</sup></li></ul>
+    </div>
+  </div>
+  <div class="foot">
+    <div>식약처 생약 규격 정의 기준 · 그림은 이해를 돕는 단순 도식이에요</div>
+    <div>* 한국민족문화대백과사전 설명 &nbsp;&nbsp;** 건강기능식품 원료 기준</div>
+  </div>
+</div>
+</body></html>

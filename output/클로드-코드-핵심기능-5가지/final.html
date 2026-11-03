@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>클로드 코드 핵심 기능 5가지란? 2026년 11월 기준 도입 순서</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #222222;
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    font-size: 17px;
+    line-height: 1.85;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .post {
+    width: 100%;
+    max-width: 740px; /* 좌우 여백 20px을 빼면 본문 폭 700px */
+    margin: 0 auto;
+    padding: 56px 20px 96px;
+  }
+  h1 {
+    margin: 0 0 28px;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: #111111;
+  }
+  h2 {
+    margin: 72px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #111111;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: #111111;
+  }
+  h3 {
+    margin: 44px 0 14px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: #111111;
+  }
+  p { margin: 0 0 26px; }
+  strong { font-weight: 700; color: #111111; }
+  a { color: #1a6fd6; text-decoration: underline; text-underline-offset: 2px; }
+  img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 6px; }
+  ul, ol { margin: 0 0 26px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  blockquote {
+    margin: 0 0 26px;
+    padding: 14px 20px;
+    border-left: 4px solid #b9c3d0;
+    background: #f6f7f9;
+    color: #333333;
+  }
+  blockquote p { margin: 0; }
+  hr { margin: 56px 0; border: 0; border-top: 1px solid #dddddd; }
+  code {
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: #f1f3f5;
+    color: #c0322b;
+    font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Apple SD Gothic Neo", "Malgun Gothic", monospace;
+    font-size: 0.88em;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  pre {
+    margin: 0 0 26px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    border-radius: 8px;
+    background: #1f2430;
+    color: #e6e9ef;
+    line-height: 1.6;
+  }
+  pre code {
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-size: 14px;
+    overflow-wrap: normal;
+    white-space: pre;
+  }
+  .table-wrap { margin: 0 0 26px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+  th, td { padding: 10px 12px; border: 1px solid #dcdfe4; text-align: left; vertical-align: top; }
+  th { background: #f1f3f5; font-weight: 700; color: #111111; }
+  .review-box {
+    margin: 0 0 48px;
+    padding: 16px 20px;
+    border: 1px solid #c9d3e0;
+    border-radius: 8px;
+    background: #f3f6fa;
+    color: #44505e;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .review-box p { margin: 0 0 8px; }
+  .review-box p:last-child { margin-bottom: 0; }
+  .review-box .review-label { font-size: 12.5px; font-weight: 700; color: #5a6878; }
+  .review-box strong { color: #44505e; }
+  .marker {
+    margin: 0 0 26px;
+    padding: 14px 18px;
+    border: 2px dashed #e09a00;
+    border-radius: 8px;
+    background: #fff1b8;
+    color: #5c4300;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+  .marker::before {
+    content: "아직 채워야 할 자리";
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #a86f00;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .post { padding: 36px 16px 72px; }
+    h1 { font-size: 27px; }
+    h2 { margin-top: 56px; font-size: 22px; }
+    h3 { font-size: 18px; }
+    table { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<article class="post">
+
+<h1>클로드 코드 핵심 기능 5가지란? 2026년 11월 기준 도입 순서</h1>
+
+<aside class="review-box" aria-label="검토용 정보">
+<p class="review-label">검토용 정보 (발행 본문 아님)</p>
+<p><strong>메타 설명:</strong> 클로드 코드의 CLAUDE.md, 스킬, 서브에이전트, 훅, MCP가 각각 어떤 문제를 푸는지 정리했습니다. 쓰는 시점과 도입 순서까지 담았습니다.</p>
+<p><strong>태그:</strong> #클로드코드 #ClaudeCode #CLAUDE.md #클로드코드스킬 #서브에이전트 #클로드코드훅 #MCP #에이전트형코딩도구</p>
+</aside>
+
+<p>클로드 코드로 사내 도구를 손보기 시작한 지 몇 주가 지났습니다.<br>
+어제 고쳐 달라고 한 규칙을 오늘 또 틀립니다.<br>
+설정 글을 찾아보니 스킬, 훅, MCP까지 낯선 이름이 줄지어 나옵니다.<br>
+<strong>이걸 전부 설정해야 제대로 쓰는 걸까요?</strong></p>
+
+<p>이럴 때 결론은 보통 둘 중 하나로 갑니다.<br>
+“일단 다 설치해 보죠.”<br>
+“어려우니까 그냥 프롬프트로 버티죠.”</p>
+
+<p><strong>1. 같은 지시를 세션마다 다시 입력한다</strong><br>
+<strong>2. CLAUDE.md에 적었으니 Claude가 꼭 지킨다고 생각한다</strong><br>
+<strong>3. 스킬, 서브에이전트, 훅의 차이를 설명하기 어렵다</strong></p>
+
+<p>하나라도 해당된다면, 두 결론 모두 아직은 이릅니다.<br>
+다섯 기능은 많이 켤수록 좋은 옵션이 아니라<br>
+서로 다른 문제를 푸는 도구이기 때문입니다.</p>
+
+<p>항상 필요한 규칙은 CLAUDE.md, 가끔 필요한 절차는 스킬이 맡습니다.<br>
+격리할 작업은 서브에이전트, 매번 일어나야 할 동작은 훅,<br>
+외부 서비스 연결은 MCP의 몫입니다.<br>
+시작은 CLAUDE.md 하나면 되고,<br>
+나머지는 필요가 생길 때 하나씩 더합니다.</p>
+
+<p>이 글은 2026년 11월 3일에 확인한 공식 문서를 기준으로 합니다.<br>
+당시 최신 버전은 10월 31일에 나온 2.1.316입니다.<br>
+버전별 세부 수치는 업데이트로 바뀔 수 있습니다.<br>
+오늘은 다섯 기능의 역할부터 정리해 보겠습니다.</p>
+
+<h2>클로드 코드 핵심 기능이란? 서로 다른 문제를 맡는 다섯 층입니다</h2>
+
+<p>클로드 코드(Claude Code)는 코드베이스를 읽고<br>
+파일을 고치고 명령을 실행하는 에이전트형 코딩 도구입니다.<br>
+터미널, IDE, 데스크톱 앱, 브라우저에서 쓸 수 있습니다.</p>
+
+<p>먼저 밝혀 둘 점이 있습니다.<br>
+공식 문서에 ‘핵심 기능 5가지’라는 분류는 없습니다.<br>
+이 글의 다섯 가지는 공식 문서가 확장 기능을 설명하며<br>
+나란히 드는 항목을 기준으로 저희가 고른 것입니다.<br>
+파일 편집, 명령 실행 같은 기본 도구는 맥락 설명에만 씁니다.</p>
+
+<p>공식 문서의 구분을 한 문장으로 옮기면 이렇습니다.</p>
+
+<p><strong>CLAUDE.md는 항상 켜진 맥락을, 스킬은 필요할 때 쓰는 지식을,</strong><br>
+<strong>MCP는 외부 연결을, 서브에이전트는 격리를, 훅은 자동화를 맡습니다.</strong></p>
+
+<p>회사 하나로 생각하면 쉽습니다.<br>
+CLAUDE.md는 매일 아침 읽는 사내 규정집이고,<br>
+스킬은 필요할 때 꺼내 보는 업무 매뉴얼입니다.<br>
+서브에이전트는 별도 회의실에서 일하고 요약만 내놓는 담당자이고,<br>
+훅은 문이 열리면 저절로 울리는 경보기입니다.</p>
+
+<p>MCP는 외부 거래처로 이어지는 전화선에 가깝습니다.<br>
+다만 이건 이해를 돕는 비유이지,<br>
+실제 구조가 회사와 똑같다는 뜻은 아닙니다.</p>
+
+<p>기능을 가르는 기준은 세 가지입니다.<br>
+언제 컨텍스트에 올라오는지, 비용이 얼마인지,<br>
+모델의 판단에 맡기는지 시스템이 강제하는지입니다.<br>
+컨텍스트는 Claude가 작업 중에 붙들고 있는 대화와 자료의 공간입니다.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>기능</th><th>맡는 일</th><th>언제 올라오나</th><th>컨텍스트 비용</th><th>강제력</th></tr>
+</thead>
+<tbody>
+<tr><td>CLAUDE.md</td><td>세션마다 읽는 지속 지침</td><td>세션 시작 시 전체</td><td>매 요청 발생</td><td>권고, 모델이 판단</td></tr>
+<tr><td>스킬</td><td>재사용하는 지식과 절차</td><td>시작 시 설명만, 사용 시 본문</td><td>낮음, 설명은 매 요청</td><td>권고, 사용자만 호출하게 제한 가능</td></tr>
+<tr><td>서브에이전트</td><td>격리된 작업자, 요약만 반환</td><td>생성될 때</td><td>메인과 분리</td><td>위임 범위와 도구를 설정으로 제한</td></tr>
+<tr><td>훅</td><td>수명주기 이벤트에 자동 실행</td><td>이벤트 발생 시</td><td>0, 출력을 돌려줄 때만 발생</td><td>결정적으로 실행</td></tr>
+<tr><td>MCP</td><td>외부 서비스와 도구 연결</td><td>시작 시 도구 이름, 필요 시 스키마</td><td>사용 전까지 낮음</td><td>외부 도구 호출에 권한 규칙 적용</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>표의 로드 시점과 비용은 공식 문서의 표를,<br>
+강제력은 공식 모범 사례의 구분을 따랐습니다.<br>
+서브에이전트와 MCP의 강제력 칸은 공식 분류에 없습니다.<br>
+문서 내용을 바탕으로 적은 해석으로 읽어 주세요.</p>
+
+<p>저희는 이 다섯을 대체재가 아니라 역할이 다른 층으로 봅니다.<br>
+공식 문서, 공식 블로그, 독립 저자의 글도 같은 구도로 설명합니다.</p>
+
+<p><img src="./images/body-1.png" alt="CLAUDE.md는 항상 켜진 맥락, 스킬은 필요할 때 쓰는 지식, 서브에이전트는 격리된 작업자, 훅은 이벤트 자동 실행, MCP는 외부 연결을 맡는 다섯 층"></p>
+
+<p>다섯 기능은 경쟁 관계가 아니라 서로 다른 문제를 맡는 층입니다.</p>
+
+<h2>1. CLAUDE.md와 자동 메모리, 무엇이 다를까요?</h2>
+
+<p><strong>CLAUDE.md는 사람이 쓰는 지침이고,</strong><br>
+<strong>자동 메모리는 Claude가 스스로 쓰는 메모입니다.</strong></p>
+
+<p>모든 세션은 빈 컨텍스트로 시작합니다.<br>
+이 둘이 지식을 다음 세션으로 넘기는 장치입니다.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>항목</th><th>CLAUDE.md</th><th>자동 메모리</th></tr>
+</thead>
+<tbody>
+<tr><td>작성자</td><td>사용자</td><td>Claude</td></tr>
+<tr><td>내용</td><td>지침과 규칙</td><td>학습 내용과 패턴</td></tr>
+<tr><td>범위</td><td>프로젝트, 사용자, 조직</td><td>저장소 단위, 워크트리끼리 공유</td></tr>
+<tr><td>로드</td><td>매 세션</td><td>매 세션, 앞 200줄 또는 25KB</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>CLAUDE.md는 범위에 따라 놓는 곳이 다릅니다.</p>
+
+<ul>
+<li><strong>개인 전역:</strong> <code>~/.claude/CLAUDE.md</code></li>
+<li><strong>팀 공유:</strong> <code>./CLAUDE.md</code> 또는 <code>./.claude/CLAUDE.md</code></li>
+<li><strong>개인 프로젝트용:</strong> <code>./CLAUDE.local.md</code>, <code>.gitignore</code>에 추가합니다.</li>
+</ul>
+
+<p>여기에 조직 관리 정책 파일이 더해질 수 있습니다.<br>
+여러 파일은 서로 덮어쓰지 않고 이어 붙습니다.</p>
+
+<p>공식 문서가 권하는 작성법은 네 가지로 추릴 수 있습니다.</p>
+
+<ol>
+<li><strong>200줄 이하를 목표로 합니다:</strong> 길수록 컨텍스트를 더 쓰고 지시 준수율도 떨어집니다.</li>
+<li><strong>검증할 수 있게 씁니다:</strong> “코드를 잘 정리하세요” 대신 “2칸 들여쓰기를 쓰세요”처럼 적습니다.</li>
+<li><strong>코드에서 찾을 수 있는 내용은 뺍니다:</strong> 검증 명령, 오해하기 쉬운 코드, 저장소 밖에서 내린 결정, 두 번 이상 고쳐 준 내용을 남깁니다.</li>
+<li><strong><code>/init</code>으로 초안을 만듭니다:</strong> 이미 파일이 있으면 덮어쓰지 않고 개선안을 제안합니다.</li>
+</ol>
+
+<p>또 하나, <code>@경로</code> 가져오기는 파일을 나눌 뿐 컨텍스트를 줄이지 않습니다.<br>
+가져온 파일도 함께 로드되기 때문입니다.<br>
+줄이려면 <code>paths</code>로 범위를 정한 <code>.claude/rules/</code> 규칙이나 스킬로 옮깁니다.</p>
+
+<p>자동 메모리는 기본으로 켜져 있고 <code>/memory</code>로 켜고 끕니다.<br>
+저장 위치는 <code>~/.claude/projects/&lt;project&gt;/memory/</code>입니다.<br>
+기기 안에만 있고 다른 기기나 클라우드로 공유되지 않습니다.<br>
+코드에서 알아낼 수 있는 내용이나<br>
+CLAUDE.md에 이미 있는 내용은 저장하지 않습니다.</p>
+
+<blockquote>
+<p>“CLAUDE.md에 굵게 적어 두면 Claude가 꼭 지키는 거 아닌가요?”</p>
+</blockquote>
+
+<p>그렇게 단정할 근거는 없습니다.<br>
+<strong>CLAUDE.md는 강제 설정이 아니라 맥락입니다.</strong><br>
+공식 모범 사례는 강조를 덧붙여도 Claude가 놓친다면<br>
+그 줄을 훅으로 옮길 대상으로 봅니다.</p>
+
+<p>그래서 저희는 한 줄을 적기 전에<br>
+“이건 부탁인가, 막아야 할 일인가”부터 따져 보시길 권합니다.</p>
+
+<div class="marker">[경험 보충: 실제 운영 중인 CLAUDE.md에서 뺀 줄과 남긴 줄 사례, 길이를 줄인 전후에 달라진 점]</div>
+
+<h2>2. 스킬은 언제 쓸까요? 같은 절차를 세 번째 붙여 넣을 때입니다</h2>
+
+<p>공식 문서가 드는 도입 계기는 같은 절차를 세 번째 붙여 넣을 때입니다.<br>
+스킬은 지식, 워크플로, 지침을 담은 마크다운 파일입니다.<br>
+형식은 폴더 안의 <code>SKILL.md</code> 파일입니다.</p>
+
+<p>스킬은 두 종류로 나뉩니다.<br>
+<strong>참조형은 세션 내내 쓰는 지식이고, 실행형은 특정 작업을 시키는 절차입니다.</strong><br>
+API 스타일 가이드가 참조형이고, <code>/deploy</code>가 실행형입니다.</p>
+
+<p>컨텍스트에 유리한 이유는 불러오는 순서에 있습니다.<br>
+시작할 때는 이름과 설명만 올리고, 본문은 쓸 때 올립니다.<br>
+Agent Skills 표준은 이 방식을<br>
+점진적 공개(progressive disclosure)라고 부릅니다.<br>
+그래서 긴 참고 자료는 CLAUDE.md보다 스킬에 두는 편이 낫습니다.</p>
+
+<p>공식 문서 형식을 기준으로 한 예시입니다.</p>
+
+<pre><code class="language-yaml">---
+name: deploy
+description: 애플리케이션을 프로덕션에 배포합니다
+disable-model-invocation: true
+---
+
+$ARGUMENTS 를 프로덕션에 배포하세요:
+1. 테스트 스위트 실행
+2. 애플리케이션 빌드
+3. 배포 대상에 푸시
+4. 배포 성공 여부 확인
+</code></pre>
+
+<p>개인용은 <code>~/.claude/skills/&lt;이름&gt;/SKILL.md</code>에 둡니다.<br>
+프로젝트용은 <code>.claude/skills/&lt;이름&gt;/SKILL.md</code>에 두고,<br>
+커밋하면 팀이 함께 씁니다.</p>
+
+<p>호출 방식은 머리말 설정으로 조절합니다. 자주 보는 것은 세 가지입니다.</p>
+
+<ul>
+<li><strong><code>disable-model-invocation: true</code>:</strong> Claude가 자동으로 호출하지 못합니다. 배포처럼 부작용이 있는 작업에 씁니다.</li>
+<li><strong><code>user-invocable: false</code>:</strong> <code>/</code> 메뉴에서 숨기고 Claude만 씁니다. 배경 지식용입니다.</li>
+<li><strong><code>context: fork</code>:</strong> 서브에이전트에서 격리해 실행합니다.</li>
+</ul>
+
+<p>첫 번째 설정을 쓰면 설명도 컨텍스트에 올라가지 않습니다.<br>
+호출 전 비용이 0인 셈입니다.<br>
+그래서 저희는 되돌리기 어려운 작업이라면<br>
+이 설정부터 확인해 보시길 권합니다.</p>
+
+<p>이미 <code>.claude/commands/</code>를 쓰고 계셔도 걱정하실 일은 아닙니다.<br>
+커스텀 명령은 스킬로 통합됐고 기존 파일은 계속 작동합니다.<br>
+다만 새로 만든다면 스킬 형식을 권합니다.</p>
+
+<p><code>/code-review</code>, <code>/batch</code>, <code>/debug</code>는 설정 없이 쓰는 기본 제공 스킬입니다.<br>
+2026년 8월 31일~9월 4일 주간에 나온 <code>/skill-doctor</code>는<br>
+스킬별 컨텍스트 비용과 사용 빈도를 보여 줍니다.</p>
+
+<p>그렇다고 스킬이 늘 같은 결과를 내는 것은 아닙니다.<br>
+절차를 지시문으로 전달하는 방식이라 결과는 달라질 수 있습니다.<br>
+설명이 모호하거나 겹치면 엉뚱한 스킬을 불러오기도 합니다.<br>
+확실히 쓰게 하려면 <code>/이름</code>으로 직접 호출합니다.</p>
+
+<h2>숫자로 한 번 보겠습니다: 긴 자료를 스킬로 옮기면 무엇이 달라질까요?</h2>
+
+<p><strong>가정</strong></p>
+
+<p>이 글의 숫자는 모두 설명을 위한 가상 예시이며 실제 성과가 아닙니다.<br>
+드립백 커피 몰을 운영하는 A씨의 CLAUDE.md가 600줄이라고 해 보죠.<br>
+그중 450줄은 반품 처리와 정산 절차처럼 가끔만 보는 내용입니다.<br>
+한 달에 세션을 100번 열고, 이 절차는 그중 10번만 쓴다고 가정합니다.</p>
+
+<p>계산을 보겠습니다.<br>
+그대로 두면 600줄 × 100회 = 60,000줄을 불러옵니다.<br>
+450줄을 스킬로 옮기면 CLAUDE.md는 150줄 × 100회 = 15,000줄입니다.<br>
+스킬 본문은 450줄 × 10회 = 4,500줄입니다.<br>
+합치면 15,000 + 4,500 = 19,500줄입니다.</p>
+
+<p><strong>19,500 ÷ 60,000 = 32.5%, 불러오는 양이 약 3분의 1로 줄어드는 셈입니다.</strong></p>
+
+<p>그런데 이 숫자를 실제 절감률이라고 부르면 안 됩니다.<br>
+줄 수는 토큰이 아니고, 스킬 설명의 비용도 뺐습니다.<br>
+CLAUDE.md는 세션이 아니라 매 요청 비용이 생기는 점도 단순화했습니다.<br>
+스킬의 효과를 측정한 공식 수치도 찾지 못했습니다.<br>
+이 숫자는 구조를 보여 주기 위한 가정입니다.</p>
+
+<p>실제 토큰 사용량은 <code>/context all</code>로 확인합니다.</p>
+
+<p><img src="./images/body-2.png" alt="가상 예시의 막대 비교 도식"></p>
+
+<p>자주 쓰지 않는 내용일수록 스킬로 옮겼을 때 매번 싣는 양이 줄어듭니다.</p>
+
+<h2>3. 서브에이전트는 왜 필요할까요? 메인 대화를 지키기 위해서입니다</h2>
+
+<p><strong>서브에이전트는 자기만의 컨텍스트 창, 시스템 프롬프트,</strong><br>
+<strong>도구 권한을 가진 전문 작업자입니다.</strong><br>
+검색 결과나 로그처럼 양이 많은 출력을 대신 처리하고<br>
+요약만 돌려주므로 메인 대화가 깨끗하게 유지됩니다.</p>
+
+<p>스킬과 헷갈리기 쉽습니다.<br>
+<strong>스킬은 불러오는 내용이고, 서브에이전트는 일을 맡기는 작업자입니다.</strong><br>
+스킬은 메인 창에 더해지고, 서브에이전트는 별도 창을 씁니다.<br>
+둘을 함께 쓸 수도 있습니다.<br>
+서브에이전트가 <code>skills:</code> 필드로 스킬을 미리 불러오는 식입니다.</p>
+
+<p>대표적인 내장 서브에이전트는 세 가지입니다.<br>
+Explore는 읽기 전용 탐색을, Plan은 계획용 조사를 맡고,<br>
+general-purpose는 범용으로 씁니다.</p>
+
+<p>직접 만들 때는 Claude에게 요청해도 되고,<br>
+<code>.claude/agents/</code>(프로젝트)나 <code>~/.claude/agents/</code>(개인)에<br>
+마크다운 파일을 써도 됩니다.<br>
+꼭 적어야 하는 항목은 <code>name</code>과 <code>description</code>입니다.<br>
+아래는 공식 문서의 예시를 한국어로 옮긴 것입니다.</p>
+
+<pre><code class="language-markdown">---
+name: code-reviewer
+description: 코드 품질과 모범 사례를 검토. 코드 변경 후 사용.
+tools: Read, Glob, Grep
+model: sonnet
+---
+
+코드를 분석한 뒤 품질, 보안, 모범 사례에 대해
+구체적이고 실행 가능한 피드백을 제공하세요.
+</code></pre>
+
+<p><code>tools</code>는 쓸 도구를 제한하고, <code>model</code>은 쓸 모델을 지정합니다.<br>
+<code>isolation: worktree</code>를 쓰면 임시 git 워크트리에서 격리해 실행합니다.</p>
+
+<p>서브에이전트는 메인 대화 기록 없이 새로 시작합니다.<br>
+자체 시스템 프롬프트, 지정한 스킬 전문, CLAUDE.md와 git 상태,<br>
+메인 에이전트가 프롬프트로 넘긴 내용을 받습니다.<br>
+다만 Explore와 Plan은 기본적으로 CLAUDE.md와 git 상태를 로드하지 않습니다.<br>
+대화 전체가 필요하면 포크(fork)로 시작합니다.</p>
+
+<p><img src="./images/body-3.png" alt="메인 대화 창과 서브에이전트 창을 나란히 그린 흐름도"></p>
+
+<p>긴 출력은 별도 창에 남고 메인 대화에는 요약만 돌아옵니다.</p>
+
+<p>현재 한도는 숫자로 봐 두시면 됩니다.<br>
+<strong>메인 대화 아래 기본 3계층까지 중첩할 수 있고,</strong><br>
+<strong>동시 실행은 세션당 기본 20개입니다.</strong><br>
+중첩 깊이는 <code>CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH</code>로 바꿀 수 있습니다.</p>
+
+<p>2026년 6월의 공식 소식과 블로그에는 최대 5단계로 적혀 있습니다.<br>
+현재 서브에이전트 문서와 환경 변수 문서는 기본 3계층으로 적습니다.<br>
+환경 변수 문서의 변경 이력을 근거로 3계층을 현재 값으로 봅니다.</p>
+
+<p>물론 많이 띄운다고 공짜는 아닙니다.<br>
+여러 세션이나 서브에이전트를 동시에 돌리면 토큰 사용량도 그만큼 늘어납니다.<br>
+같은 파일을 건드리는 작업은 워크트리로 분리합니다.<br>
+그래서 저희는 곁가지 출력이 대화를 덮을 때부터 쓰시길 권합니다.</p>
+
+<p>독립 저자 Daniil Okhlopkov는 에이전트 세 개를 병렬로 돌려<br>
+반나절 걸리던 지갑 분석을 약 15분으로 줄였다고 적었습니다.<br>
+다만 측정 조건이 공개되지 않은 개인 경험담입니다.<br>
+같은 효과를 기대할 근거로 삼을 수는 없습니다.</p>
+
+<h2>4. 훅은 스킬과 무엇이 다를까요? 실행 여부를 Claude가 고르지 않습니다</h2>
+
+<p><strong>훅은 수명주기의 특정 시점, 즉 이벤트에 반응해</strong><br>
+<strong>자동으로 실행되는 동작입니다.</strong><br>
+공식 문서는 이를 ‘결정적 제어’라고 설명합니다.<br>
+LLM이 실행 여부를 고르게 두지 않고<br>
+특정 동작이 매번 일어나게 한다는 뜻입니다.</p>
+
+<p>공식 모범 사례는 지시를 두 종류로 나눕니다.</p>
+
+<ul>
+<li><strong>비결정적:</strong> 프롬프트, CLAUDE.md, 스킬. 모델이 읽고 판단합니다. 대개 따르지만 보장은 없습니다.</li>
+<li><strong>결정적:</strong> 훅, 거부 규칙, 관리형 설정. 모델의 판단과 관계없이 Claude Code가 매번 적용합니다.</li>
+</ul>
+
+<p>공식 문서의 예시가 분명합니다.<br>
+CLAUDE.md의 “<code>.env</code>를 고치지 마세요”는 부탁이지 보장이 아닙니다.<br>
+이를 막는 <code>PreToolUse</code> 훅이 강제 수단입니다.<br>
+공식 블로그는 “A real guardrail needs to be deterministic”라고 적습니다.<br>
+진짜 안전장치는 결정적이어야 한다는 뜻입니다.</p>
+
+<p>자주 쓰는 이벤트는 여섯 가지입니다.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>이벤트</th><th>시점</th><th>대표 용도</th></tr>
+</thead>
+<tbody>
+<tr><td><code>PreToolUse</code></td><td>도구 실행 전, 차단 가능</td><td>보호 파일 수정 막기, 위험 명령 차단</td></tr>
+<tr><td><code>PostToolUse</code></td><td>도구 성공 후</td><td>포매터, 린터 실행</td></tr>
+<tr><td><code>Notification</code></td><td>알림을 보낼 때</td><td>입력 대기 알림</td></tr>
+<tr><td><code>Stop</code></td><td>응답을 마칠 때</td><td>타입 검사 통과 강제</td></tr>
+<tr><td><code>SessionStart</code></td><td>세션 시작 또는 재개 시</td><td>컴팩션 뒤 맥락 다시 주입</td></tr>
+<tr><td><code>PreCompact</code></td><td>컴팩션 전</td><td>대화 기록 백업</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>전체 이벤트는 공식 가이드 표의 행을 세면 33개입니다.<br>
+문서에 적힌 값이 아니라 2026년 11월 3일 기준으로 표를 센 숫자입니다.</p>
+
+<p>훅 종류는 다섯 가지입니다.<br>
+<code>command</code>는 셸 명령, <code>http</code>는 URL로 POST,<br>
+<code>mcp_tool</code>은 MCP 도구 호출을 맡습니다.<br>
+<code>prompt</code>는 한 번의 LLM 평가이고,<br>
+<code>agent</code>는 도구를 쓰는 다중 턴 검증으로 실험적 기능입니다.</p>
+
+<p>공식 블로그는 앞의 셋은 결정적으로 실행되고,<br>
+뒤의 둘은 모델의 판단을 쓴다고 구분합니다.<br>
+저희는 이렇게 읽습니다.<br>
+실행 여부는 결정적이고, <code>prompt</code>와 <code>agent</code>의 판정 결과는 모델에 달려 있습니다.</p>
+
+<p>초심자가 가장 많이 헷갈리는 곳은 종료 코드입니다.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>종료 코드</th><th>의미</th><th>기억할 점</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>이의 없음</td><td><code>PreToolUse</code>에서 0은 승인이 아니며 평소 권한 흐름을 거칩니다</td></tr>
+<tr><td>2</td><td>차단</td><td>stderr의 이유가 Claude에게 전달됩니다. 차단할 수 없는 이벤트에서는 그대로 진행됩니다</td></tr>
+<tr><td>그 밖의 코드</td><td>대부분 비차단 오류</td><td>동작이 계속됩니다. 코드 1로는 막지 못합니다</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>정책을 강제할 때는 1이 아니라 2를 씁니다.</strong></p>
+
+<p><img src="./images/body-4.png" alt="PreToolUse 훅의 판단 흐름도"></p>
+
+<p><code>PreToolUse</code>에서 차단으로 처리되는 종료 코드는 2입니다.</p>
+
+<p>설정은 <code>settings.json</code>의 <code>hooks</code> 키에 넣습니다.<br>
+아래는 파일을 고친 뒤 포매터를 실행하는 공식 가이드의 예시 형식입니다.</p>
+
+<pre><code class="language-json">{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write" }]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<p>등록한 훅은 <code>/hooks</code>로 확인합니다.<br>
+공식 문서는 범위를 좁히라는 경고도 함께 둡니다.<br>
+<code>PermissionRequest</code> 훅의 <code>matcher</code>를 <code>.*</code>로 쓰거나 비워 두면<br>
+파일 쓰기와 셸 명령까지 모든 권한 요청이 자동 승인됩니다.</p>
+
+<p>그렇다고 모든 규칙을 훅으로 옮길 일은 아닙니다.<br>
+공식 문서는 대부분의 경우 Claude가 판단하게 두는 편이 낫고,<br>
+단순한 선호에 불과한 훅은 지우라고 권합니다.<br>
+그래서 저희는 어겼을 때 되돌리기 어려운 규칙부터 훅으로 옮기시길 권합니다.</p>
+
+<div class="marker">[경험 보충: 실제로 등록해 둔 훅 하나와 그 훅이 막아 준 상황, 훅을 쓰지 않았을 때와 달라진 점]</div>
+
+<h2>5. MCP는 무엇을 연결할까요? 외부 서비스와 데이터입니다</h2>
+
+<p><strong>Model Context Protocol, 줄여서 MCP는</strong><br>
+<strong>AI 애플리케이션을 외부 시스템에 연결하는 오픈소스 표준입니다.</strong><br>
+공식 사이트는 이를 “AI 애플리케이션의 USB-C 포트”에 비유합니다.<br>
+Claude뿐 아니라 ChatGPT, Visual Studio Code, Cursor 등도 지원합니다.</p>
+
+<p>연결하면 이런 일을 맡길 수 있습니다.<br>
+이슈 트래커의 티켓을 읽어 구현하고 GitHub에 PR을 올립니다.<br>
+데이터베이스를 자연어로 조회하고, Slack에 글을 올립니다.<br>
+다른 시스템의 데이터를 채팅에 계속 복사하고 있다면 도입할 신호입니다.</p>
+
+<p>연결 방식은 세 가지입니다.<br>
+HTTP 원격 서버가 권장 방식이고, SSE는 지원 중단 예정이며,<br>
+로컬 프로세스는 stdio로 실행합니다.</p>
+
+<pre><code class="language-bash"># 원격 HTTP 서버 추가
+claude mcp add --transport http notion https://mcp.notion.com/mcp
+
+# 로컬 stdio 서버 추가
+claude mcp add --env AIRTABLE_API_KEY=YOUR_KEY --transport stdio airtable \
+  -- npx -y airtable-mcp-server
+</code></pre>
+
+<p>추가한 뒤에는 세션 안에서 <code>/mcp</code>로 상태 확인, 인증, 재연결을 합니다.<br>
+적용 범위는 세 가지입니다.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>범위</th><th>쓰는 사람과 위치</th></tr>
+</thead>
+<tbody>
+<tr><td><code>local</code></td><td>기본값. 현재 프로젝트에서 나만 씁니다</td></tr>
+<tr><td><code>project</code></td><td><code>.mcp.json</code>으로 팀과 공유합니다</td></tr>
+<tr><td><code>user</code></td><td>내 모든 프로젝트에 적용합니다</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>이름이 겹치면 local, project, user 순서로 적용됩니다.</p>
+
+<p>여기서 많이들 걱정하시는 것이 컨텍스트 비용입니다.<br>
+예전에는 MCP를 많이 붙일수록 도구 정의가 컨텍스트를 차지했습니다.<br>
+현재는 도구 검색(tool search)이 기본으로 켜져 있습니다.<br>
+시작할 때 도구 이름과 서버 지침만 올리고,<br>
+전체 스키마는 필요할 때 불러옵니다.</p>
+
+<p>다만 공짜라는 뜻은 아닙니다.<br>
+공식 문서는 실질적 한계가 컨텍스트 창이라고 설명합니다.<br>
+일부 구형 모델과 Azure에서 호스팅되는 Microsoft Foundry 배포에서는<br>
+처음부터 전부 로드합니다.<br>
+도구 출력도 1만 토큰을 넘으면 경고가 뜨고, 기본 상한은 2만 5천 토큰입니다.</p>
+
+<p><strong>MCP는 연결을, 스킬은 그 연결을 잘 쓰는 법을 제공합니다.</strong><br>
+MCP로 데이터베이스에 연결하고,<br>
+스킬에 스키마와 쿼리 패턴을 적어 두는 식입니다.</p>
+
+<p>보안도 함께 봐야 합니다.<br>
+외부 콘텐츠를 가져오는 서버에는 프롬프트 인젝션 위험이 있습니다.<br>
+공식 문서는 연결 전에 서버를 신뢰할 수 있는지 확인하라고 경고합니다.<br>
+그래서 저희는 서버를 붙이기 전에 만든 곳부터 확인해 보시길 권합니다.<br>
+데이터베이스는 읽기 전용 계정으로 연결하는 편이 낫습니다.</p>
+
+<p>Okhlopkov도 서버는 한 번에 많이 붙이지 말고 하나씩 늘리라고 조언합니다.<br>
+개인의 조언이지만, 공식 문서가 권하는 순서와 같은 방향입니다.</p>
+
+<h2>다섯 기능, 어떤 순서로 도입할까요? 계기가 생길 때 하나씩입니다</h2>
+
+<p><strong>공식 문서가 권하는 순서는 CLAUDE.md로 시작해</strong><br>
+<strong>필요가 생길 때마다 하나씩 더하는 것입니다.</strong><br>
+한꺼번에 설정하지 말라는 뜻입니다.</p>
+
+<p>공식 문서가 드는 계기는 이렇습니다.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>이런 장면이 생기면</th><th>추가할 기능</th></tr>
+</thead>
+<tbody>
+<tr><td>Claude가 규칙이나 명령을 두 번 틀렸다</td><td>CLAUDE.md</td></tr>
+<tr><td>같은 프롬프트나 절차를 계속 입력한다</td><td>스킬</td></tr>
+<tr><td>Claude가 못 보는 브라우저 탭의 데이터를 계속 복사한다</td><td>MCP</td></tr>
+<tr><td>곁가지 작업의 출력이 대화를 덮는다</td><td>서브에이전트</td></tr>
+<tr><td>묻지 않아도 매번 일어나게 하고 싶다</td><td>훅</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><img src="./images/body-5.png" alt="장면에서 기능으로 이어지는 도입 순서 도식"></p>
+
+<p>기능을 고르는 기준은 유행이 아니라 지금 겪는 장면입니다.</p>
+
+<p>기능끼리는 함께 쓸 수 있습니다.<br>
+공식 문서의 조합 예시는 네 가지입니다.</p>
+
+<ul>
+<li><strong>스킬 + MCP:</strong> MCP가 연결하고 스킬이 사용법을 알려 줍니다.</li>
+<li><strong>스킬 + 서브에이전트:</strong> <code>/audit</code> 스킬이 보안, 성능, 스타일 서브에이전트를 시작합니다.</li>
+<li><strong>CLAUDE.md + 스킬:</strong> CLAUDE.md는 “API 규약을 따르라”고 적고, 전체 가이드는 스킬에 둡니다.</li>
+<li><strong>훅 + MCP:</strong> 중요한 파일이 바뀌면 훅이 MCP로 Slack 알림을 보냅니다.</li>
+</ul>
+
+<p>여러 곳에 같은 정의가 있을 때도 기억해 두시면 좋습니다.<br>
+CLAUDE.md는 모두 합쳐지고, 훅도 모두 실행됩니다.<br>
+스킬, 서브에이전트, MCP 서버는 이름 기준으로 하나만 적용됩니다.<br>
+스킬은 개인이, 서브에이전트는 프로젝트가 우선이라 순서가 반대입니다.</p>
+
+<p>아직 설치 전이라면 시작은 간단합니다.<br>
+macOS, Linux, WSL에서는 아래 명령으로 설치합니다.<br>
+대부분의 환경에 Claude 구독이나 Anthropic Console 계정이 필요합니다.</p>
+
+<pre><code class="language-bash">curl -fsSL https://claude.ai/install.sh | bash
+</code></pre>
+
+<p>Windows PowerShell에서는 <code>irm https://claude.ai/install.ps1 | iex</code>를 씁니다.<br>
+설치 후 프로젝트 폴더에서 <code>claude</code>를 실행하시면 됩니다.</p>
+
+<div class="marker">[경험 보충: 실제로 다섯 기능을 도입한 순서와 기간, 단계별로 달라진 점, 사용 환경. 직접 찍은 터미널 화면이 있으면 함께 첨부]</div>
+
+<h2>자주 받는 질문</h2>
+
+<h3>Q. 다섯 가지를 전부 설정해야 하나요?</h3>
+
+<p>그렇지 않습니다.<br>
+공식 모범 사례는 대부분의 경우<br>
+첫 프롬프트부터 기본값이 잘 작동하도록 만들어졌다고 설명합니다.<br>
+설정은 프로젝트 고유의 지식과 규칙을 Claude가 알 수 없을 때 필요합니다.<br>
+<strong>막히는 지점이 생긴 기능 하나만 더하시면 됩니다.</strong></p>
+
+<h3>Q. CLAUDE.md와 스킬 중 어디에 적어야 하나요?</h3>
+
+<p>얼마나 자주 필요한지에 따라 다릅니다.<br>
+항상 알아야 하면 CLAUDE.md, 가끔 필요하면 스킬입니다.<br>
+CLAUDE.md에는 한 줄 원칙만 적고<br>
+전체 가이드는 스킬에 두는 조합도 공식 문서의 예시입니다.</p>
+
+<h3>Q. 스킬이 있으면 MCP는 없어도 되나요?</h3>
+
+<p>목적에 따라 다릅니다.<br>
+<strong>MCP는 도구와 데이터 접근을, 스킬은 지식과 절차를 제공합니다.</strong><br>
+공식 문서의 예시처럼 MCP로 데이터베이스에 연결하고<br>
+스킬에 쿼리 패턴을 적어 두면 둘은 함께 쓰는 짝이 됩니다.</p>
+
+<h3>Q. 플러그인은 여섯 번째 기능 아닌가요?</h3>
+
+<p>그보다는 포장 계층에 가깝습니다.<br>
+스킬, 에이전트, 훅, MCP 서버를 한 단위로 묶어 설치하고 배포합니다.<br>
+여러 프로젝트나 팀에 나눠 줄 때 쓰면 됩니다.<br>
+다만 사용자 권한으로 실행되므로 설치 전에 검토해야 합니다.<br>
+활성화해 두면 쓰지 않는 세션에도 이름과 설명이 컨텍스트를 차지합니다.</p>
+
+<hr>
+
+<p>CLAUDE.md는 항상 알아야 할 것을, 스킬은 가끔 필요한 것을 담습니다.<br>
+서브에이전트는 일을 나누고, 훅은 매번 실행하고, MCP는 바깥과 잇습니다.<br>
+역할만 섞지 않아도 어디부터 손댈지 훨씬 차분해집니다.</p>
+
+<p>대표님들, 이번 주에는 딱 한 가지만 해 보세요.<br>
+Claude에게 두 번 고쳐 준 규칙 하나를 고릅니다.<br>
+“2칸 들여쓰기를 쓰세요”처럼 확인할 수 있는 문장으로<br>
+CLAUDE.md에 한 줄만 적어 두시면 됩니다.<br>
+<strong>기능을 다 켜는 것보다 한 줄을 제대로 적는 것,</strong><br>
+<strong>그게 클로드 코드를 내 일에 맞추는 첫걸음입니다.</strong></p>
+
+<p>참고: <a href="https://code.claude.com/docs/en/overview">Anthropic, Overview</a><br>
+참고: <a href="https://code.claude.com/docs/en/features-overview.md">Anthropic, Extend Claude Code</a><br>
+참고: <a href="https://code.claude.com/docs/en/memory.md">Anthropic, How Claude remembers your project</a><br>
+참고: <a href="https://code.claude.com/docs/en/skills.md">Anthropic, Extend Claude with skills</a><br>
+참고: <a href="https://code.claude.com/docs/en/sub-agents.md">Anthropic, Create custom subagents</a><br>
+참고: <a href="https://code.claude.com/docs/en/agents.md">Anthropic, Run agents in parallel</a><br>
+참고: <a href="https://code.claude.com/docs/en/hooks-guide.md">Anthropic, Automate actions with hooks</a><br>
+참고: <a href="https://code.claude.com/docs/en/hooks.md">Anthropic, Hooks reference</a><br>
+참고: <a href="https://code.claude.com/docs/en/mcp.md">Anthropic, Connect Claude Code to tools via MCP</a><br>
+참고: <a href="https://code.claude.com/docs/en/plugins/overview.md">Anthropic, Plugins overview</a><br>
+참고: <a href="https://code.claude.com/docs/en/best-practices.md">Anthropic, Best practices for Claude Code</a><br>
+참고: <a href="https://code.claude.com/docs/en/whats-new/index.md">Anthropic, What's new</a><br>
+참고: <a href="https://code.claude.com/docs/en/whats-new/2026-w24.md">Anthropic, Week 24, June 8-12, 2026</a><br>
+참고: <a href="https://code.claude.com/docs/en/env-vars.md">Anthropic, Environment variables</a><br>
+참고: <a href="https://code.claude.com/docs/en/changelog.md">Anthropic, Claude Code changelog</a><br>
+참고: <a href="https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more">Michael Segner, Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents</a><br>
+참고: <a href="https://modelcontextprotocol.io/docs/getting-started/intro">Model Context Protocol, What is the Model Context Protocol (MCP)?</a><br>
+참고: <a href="https://agentskills.io">Agent Skills, Agent Skills Overview</a><br>
+참고: <a href="https://blog.dotnetnerd.dk/posts/claude-code-power-features-practical-guide">Christian Holm Diget, Five levers in Claude Code</a><br>
+참고: <a href="https://okhlopkov.com/claude-code-setup-mcp-hooks-skills-2026/">Daniil Okhlopkov, My Claude Code Setup After 4 Months of Daily Use (2026)</a></p>
+
+<p>이 글의 초안은 AI 도구로 작성했습니다.</p>
+
+<hr>
+
+<h2>우리 브랜드도 이런 고민 중이라면,</h2>
+
+<p>지금 가장 막혀 있는 지점을 남겨주세요.<br>
+CLAUDE.md, 스킬, 훅까지 같이 보고 어디부터 손대면 좋을지 말씀드리겠습니다.</p>
+
+<p><a href="https://www.bemymarketer.net/contact">마케팅 상담 신청</a></p>
+
+</article>
+</body>
+</html>
