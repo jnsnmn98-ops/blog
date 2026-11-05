@@ -1,0 +1,231 @@
+{
+ "cards": [
+  {
+   "type": "cover",
+   "photo": {
+    "file": "assets/official/b68b4ef2026d6.jpg",
+    "v": 0.45
+   },
+   "char": {
+    "size": 380,
+    "flavor": "vanilla",
+    "eyes": "open",
+    "arms": "wave",
+    "tilt": -6
+   },
+   "bubble": "당류는 2g뿐!",
+   "title": [
+    "달콤한 한 스쿱,",
+    "당 걱정은 덜고"
+   ],
+   "accent": 1,
+   "sub": "마이노멀 저당 아이스크림 · 파인트 474mL"
+  },
+  {
+   "type": "feature",
+   "kicker": "POINT 1 · 저당",
+   "title": [
+    "100mL에",
+    "당류 2g"
+   ],
+   "accent": 1,
+   "tsize": 84,
+   "photo": {
+    "file": "assets/official/041f20c3edb93.jpeg",
+    "v": 0.5
+   },
+   "ph_h": 420,
+   "tilt": 1.5,
+   "char": {
+    "size": 300,
+    "flavor": "vanilla",
+    "eyes": "happy",
+    "arms": "up",
+    "tilt": 5,
+    "x": 760
+   },
+   "bubble": "설탕 대신\n알룰로오스!",
+   "bx": 460,
+   "text": "설탕을 빼고 알룰로오스로 단맛을 냈어요.",
+   "rows": [
+    [
+     "당류",
+     "2g (100mL 기준)"
+    ],
+    [
+     "알룰로오스",
+     "6g (100mL 기준)"
+    ]
+   ],
+   "note": "바닐라 아이스크림 영양정보 기준이에요(마이노멀 공식몰 상세)."
+  },
+  {
+   "type": "feature",
+   "kicker": "POINT 2 · 원재료",
+   "title": [
+    "락토프리 우유,",
+    "합성첨가물 없이"
+   ],
+   "accent": 0,
+   "tsize": 80,
+   "photo": {
+    "file": "assets/official/921a6230c115e.jpg",
+    "v": 0.55
+   },
+   "ph_h": 560,
+   "tilt": -1.5,
+   "char": {
+    "size": 300,
+    "flavor": "strawberry",
+    "eyes": "wink",
+    "arms": "wave",
+    "tilt": -5,
+    "x": 760
+   },
+   "bubble": "재료는\n단순하게!",
+   "bx": 480,
+   "rows": [
+    [
+     "락토프리",
+     "유당을 분해한 락토프리 우유로 만들었어요"
+    ],
+    [
+     "무첨가",
+     "합성첨가물 없이 단순하게 담았어요"
+    ]
+   ]
+  },
+  {
+   "type": "feature",
+   "kicker": "POINT 3 · 식감",
+   "title": [
+    "젤라또처럼",
+    "쫀득하게"
+   ],
+   "accent": 1,
+   "tsize": 84,
+   "photo": {
+    "file": "assets/official/ab4bacc6445cf.png",
+    "v": 0.5,
+    "hf": 0.5
+   },
+   "ph_h": 540,
+   "tilt": 1.2,
+   "char": {
+    "size": 300,
+    "flavor": "greentea",
+    "eyes": "open",
+    "arms": "down",
+    "tilt": 4,
+    "x": 760
+   },
+   "bubble": "쫀득쫀득~",
+   "bx": 500,
+   "text": "물을 한 방울도 넣지 않고 우유와 크림으로 가득 채워, 밀도 높게 진하고 부드러워요.",
+   "note": "마이노멀 공식몰 상세페이지의 테이스팅 노트를 옮겼어요."
+  },
+  {
+   "type": "flavors",
+   "kicker": "FLAVORS",
+   "title": [
+    "진하고 부드러운",
+    "세 가지 맛"
+   ],
+   "accent": 1,
+   "photo": {
+    "file": "assets/official/443b58245ef4d.jpg",
+    "crop": [
+     0,
+     560,
+     1920,
+     1700
+    ],
+    "v": 0.5
+   },
+   "rows": [
+    [
+     "greentea",
+     "그린티",
+     "쌉싸름하고 진한 녹차"
+    ],
+    [
+     "vanilla",
+     "바닐라",
+     "마다가스카르산 바닐라빈이 콕콕"
+    ],
+    [
+     "choco",
+     "초콜릿",
+     "벨기에 초콜릿에 쓰는 카카오 파우더"
+    ]
+   ]
+  },
+  {
+   "type": "price",
+   "kicker": "PRICE",
+   "title": [
+    "공식몰",
+    "세트 가격"
+   ],
+   "accent": 1,
+   "photo": {
+    "file": "assets/official/1b2f61b55be2d.jpg",
+    "v": 0.4
+   },
+   "rows": [
+    [
+     "3개 세트",
+     "개당 약 8,967원",
+     "26,900원",
+     "33,600원"
+    ],
+    [
+     "6개 세트",
+     "개당 약 8,317원",
+     "49,900원",
+     "67,200원"
+    ],
+    [
+     "9개 세트",
+     "개당 약 7,767원",
+     "69,900원",
+     "100,800원"
+    ]
+   ],
+   "char": {
+    "size": 250,
+    "flavor": "strawberry",
+    "eyes": "happy",
+    "arms": "up",
+    "tilt": 6
+   },
+   "notes": [
+    "마이노멀 공식몰 판매가, 2026.11.05 확인 · 기본 무료배송",
+    "맛은 바닐라·초콜릿·그린티 중 골라 담아요.",
+    "제주·도서산간은 아직 냉동 배송이 어려워요."
+   ],
+   "cta": "리뷰 평점 4.9, 맛 조합은 취향대로!"
+  },
+  {
+   "type": "closing",
+   "photo": {
+    "file": "assets/official/45c3cbf8ffc46.jpg",
+    "v": 0.5
+   },
+   "char": {
+    "size": 340,
+    "flavor": "choco",
+    "eyes": "happy",
+    "arms": "up",
+    "tilt": -4
+   },
+   "bubble": "오늘 밤은 나랑!",
+   "title": [
+    "오늘 디저트는",
+    "가볍게 한 스쿱"
+   ],
+   "accent": 1,
+   "cta": "마이노멀 공식몰에서 만나요"
+  }
+ ]
+}

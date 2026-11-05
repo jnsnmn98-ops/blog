@@ -2,3 +2,17 @@
 .DS_Store
 .claude/settings.local.json
 __pycache__/
+
+# 인스타그램 산출물: 공개 저장소라 이미지·압축파일·폰트는 올리지 않음(브랜드 공식 사진 재배포 방지)
+output/instagram/**/*.png
+output/instagram/**/*.jpg
+output/instagram/**/*.jpeg
+output/instagram/**/*.gif
+output/instagram/**/*.webp
+output/instagram/**/*.zip
+output/instagram/**/*.pdf
+output/instagram/**/*.ttf
+output/instagram/**/*.otf
+output/instagram/**/assets/
+instagram/**/*.png
+instagram/**/*.jpg

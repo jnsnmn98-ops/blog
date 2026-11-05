@@ -1,0 +1,33 @@
+{
+  "account": "@trend.zip.kr_",
+  "credit": "©nagano / 2026 Chiikawa the Movie Film Partners",
+  "cards": [
+    {"type": "cover", "photo": "assets/official/still_three.jpg",
+     "tags": ["#치이카와", "#극장판"],
+     "title": ["치이카와랑", "인어 섬 여행 가요!"],
+     "sub": "극장판 치이카와: 인어 섬의 비밀",
+     "burst": ["4주 연속", "주말 1위!"]},
+    {"type": "info", "photo": "assets/official/poster_day.jpg",
+     "title": ["먼작귀의", "첫 극장판이에요"],
+     "rows": [["원작", "나가노 만화 '세이렌 편'"], ["감독", "오이카와 케이"], ["상영", "99분 · 전체관람가"], ["국내 개봉", "2026년 9월 30일"]],
+     "note": "수입 대원미디어 · 배급 CJ ENM · 일본 개봉 2026년 7월 24일"},
+    {"type": "story", "photo": "assets/official/still_dock.jpg",
+     "no": "STORY",
+     "title": ["초대받은 섬에서", "생긴 일"],
+     "text": "치이카와와 친구들이 초대를 받아 한 섬에 놀러 가요. 그런데 그 섬엔 세이렌과 섬사람들만 아는 **비밀이** 숨어 있었어요.",
+     "badge": ["스포일러", "없어요!"]},
+    {"type": "friends", "photo": "assets/official/still_grass.jpg",
+     "title": ["함께 떠난", "친구들"],
+     "chips": ["치이카와", "하치와레", "우사기", "쿠리만쥬", "모몽가", "시사", "랏코"],
+     "text": "2023년 3~11월 연재된 원작 '세이렌 편'이 바탕이라 팬이라면 반가운 장면이 가득해요."},
+    {"type": "boxoffice", "photo": "assets/official/still_apple.jpg",
+     "title": ["귀여움으로", "극장가 접수 중"],
+     "stats": [["258만 명", "11월 1일 기준 누적 관객"], ["4주 연속", "주말 박스오피스 1위"], ["첫 주말 1위", "일본 개봉 성적"]],
+     "note": "국내: 영화관입장권 통합전산망 집계(2026.11.02 보도) · 일본: 개봉 첫 주말 기준"},
+    {"type": "end", "photo": "assets/official/poster_night.jpg",
+     "title": ["이번 주말,", "극장에서 만나요!"],
+     "cta": "같이 보고 싶은 친구를 태그해 주세요",
+     "note": "상영 시간·여부는 극장마다 달라요",
+     "source": "출처: 영화관입장권 통합전산망 보도(마이데일리·세계일보 2026.11.02), 연합뉴스(2026.09.17) · 이미지: 대원미디어·CJ ENM 배포 스틸"}
+  ]
+}
