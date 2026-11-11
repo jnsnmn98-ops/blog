@@ -16,3 +16,6 @@ output/instagram/**/*.otf
 output/instagram/**/assets/
 instagram/**/*.png
 instagram/**/*.jpg
+
+# 포트폴리오 페이지(output/site)의 카드 표지 이미지도 브랜드 공식 사진이 들어 있어 공개 저장소에 올리지 않음
+output/site/img/

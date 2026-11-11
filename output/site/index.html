@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>트렌드.zip 작업실</title>
+<meta name="description" content="트렌드.zip 인스타그램 카드뉴스 작업물 모음">
+<style>
+  :root{
+    --bg:#F5F5F7; --card:#FFFFFF; --ink:#1D1D1F; --sub:#6E6E73; --link:#0066CC;
+    --accent:#C2410C; --line:#D2D2D7; --paddle:rgba(210,210,215,.64);
+    --radius:18px; --shadow:2px 4px 12px rgba(0,0,0,.08);
+    --gutter:max(22px, calc((100vw - 1180px) / 2));
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;
+    font-size:17px;line-height:1.47;letter-spacing:-.01em;word-break:keep-all}
+  a{color:var(--link);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* 0. 상단 내비 */
+  .nav{position:sticky;top:0;z-index:10;height:44px;background:rgba(245,245,247,.8);
+    backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid rgba(0,0,0,.06)}
+  .nav-in{height:100%;max-width:1024px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:28px;font-size:12px}
+  .nav-in .logo{font-weight:700;font-size:14px;color:var(--ink)}
+  .nav-in a{color:var(--ink);opacity:.8}
+  .nav-in a:hover{opacity:1;text-decoration:none}
+  .nav-in .sp{flex:1}
+  @media (max-width:734px){.nav-in .hide-m{display:none}.nav{height:48px}}
+
+  /* 1. 리본 */
+  .ribbon{text-align:center;font-size:14px;padding:18px 22px;background:var(--card)}
+
+  /* 2. 히어로 */
+  .hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;
+    padding:56px var(--gutter) 28px}
+  .hero h1{margin:0;font-size:80px;line-height:1.05;font-weight:600;letter-spacing:-.02em}
+  .hero .tag{text-align:right;font-size:28px;line-height:1.2;font-weight:600;max-width:420px}
+  .hero .tag a{display:block;font-size:14px;font-weight:400;margin-top:10px}
+  @media (max-width:734px){.hero h1{font-size:48px}.hero .tag{text-align:left;font-size:21px}}
+
+  /* 선반 공통 */
+  .shelf{padding:28px 0 8px}
+  .shelf h2{margin:0 0 18px;padding:0 var(--gutter);font-size:28px;line-height:1.14;font-weight:600}
+  .shelf h2 span{color:var(--sub)}
+  @media (max-width:734px){.shelf h2{font-size:24px}}
+  .scroller-wrap{position:relative}
+  .scroller{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--gutter);
+    padding:6px var(--gutter) 40px;scrollbar-width:none}
+  .scroller::-webkit-scrollbar{display:none}
+  .scroller > *{scroll-snap-align:start;flex:none}
+  .paddle{position:absolute;top:calc(50% - 40px);width:45px;height:45px;border-radius:50%;border:0;
+    background:var(--paddle);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .2s}
+  .scroller-wrap:hover .paddle{opacity:1}
+  .paddle:disabled{opacity:0 !important;cursor:default}
+  .paddle.prev{left:12px}.paddle.next{right:12px}
+  @media (hover:none){.paddle{display:none}}
+
+  /* 3. 카테고리 선반 */
+  .cats .scroller{gap:12px;padding-bottom:24px}
+  .cat{width:120px;text-align:center;color:var(--ink);font-size:14px}
+  .cat:hover{text-decoration:none}
+  .cat img{width:72px;height:90px;object-fit:cover;border-radius:12px;display:block;margin:0 auto 10px;box-shadow:var(--shadow)}
+  .cat:hover span{color:var(--link)}
+
+  /* 4. 작업물 카드 (4:5 사진 + 아래 글) */
+  .card{width:300px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;
+    color:var(--ink);display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s}
+  .card:hover{text-decoration:none;transform:scale(1.015);box-shadow:2px 4px 16px rgba(0,0,0,.16)}
+  .card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#e8e8ed}
+  .card .txt{padding:18px 22px 22px}
+  .eyebrow{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.02em}
+  .card h3{margin:4px 0 6px;font-size:21px;line-height:1.2;font-weight:600}
+  .card p{margin:0;font-size:14px;line-height:1.43;color:var(--ink)}
+  .card .meta{margin-top:12px;font-size:12px;color:var(--sub)}
+  @media (max-width:734px){.card{width:260px}}
+
+  /* 5. 반 크기 선반 (작업 방식) */
+  .half{width:300px;min-height:200px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+  .half .no{font-size:12px;font-weight:600;color:var(--sub)}
+  .half h3{margin:6px 0 8px;font-size:21px;font-weight:600;line-height:1.2}
+  .half p{margin:0;font-size:14px;color:var(--ink)}
+  @media (max-width:734px){.half{width:260px}}
+
+  /* 빠른 링크 + 각주 */
+  .quick{padding:24px var(--gutter) 40px}
+  .quick h2{font-size:17px;margin:0 0 14px;font-weight:600}
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pills a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--ink);background:var(--card)}
+  .pills a:hover{border-color:var(--ink);text-decoration:none}
+  footer{border-top:1px solid var(--line);padding:22px var(--gutter) 40px;font-size:12px;color:var(--sub);line-height:1.6}
+  footer p{margin:0 0 6px;max-width:980px}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="사이트">
+  <div class="nav-in">
+    <a class="logo" href="#top">트렌드.zip</a>
+    <a href="#new">최신 작업</a>
+    <a href="#ads">광고</a>
+    <a href="#brand" class="hide-m">명품·브랜드</a>
+    <a href="#toon" class="hide-m">인스타툰</a>
+    <a href="#how" class="hide-m">작업 방식</a>
+    <span class="sp"></span>
+    <a href="https://www.instagram.com/trend.zip.kr_/" target="_blank" rel="noopener">인스타그램</a>
+  </div>
+</nav>
+
+<div class="ribbon" id="top">
+  오늘 카드뉴스 3편을 새로 올렸어요. 로지텍 · 제네시스 G90 · 마이노멀.
+  <a href="https://www.instagram.com/trend.zip.kr_/" target="_blank" rel="noopener">인스타그램에서 보기 &gt;</a>
+</div>
+
+<header class="hero">
+  <h1>작업실</h1>
+  <div class="tag">
+    브랜드 이야기를<br>끝까지 넘기고 싶은 카드로.
+    <a href="#how">어떻게 만드는지 보기 &gt;</a>
+  </div>
+</header>
+
+<section class="shelf cats" aria-label="카테고리">
+  <div class="scroller-wrap"><div class="scroller" id="cats"></div></div>
+</section>
+
+<section class="shelf" id="new">
+  <h2>최신 작업. <span>오늘 올린 따끈한 카드뉴스.</span></h2>
+  <div class="scroller-wrap" data-shelf="new"></div>
+</section>
+
+<section class="shelf" id="ads">
+  <h2>광고 캠페인. <span>제품 하나를 5~7장으로 설득해요.</span></h2>
+  <div class="scroller-wrap" data-shelf="ads"></div>
+</section>
+
+<section class="shelf" id="brand">
+  <h2>명품·브랜드. <span>사진 한 장으로 품격을 말해요.</span></h2>
+  <div class="scroller-wrap" data-shelf="brand"></div>
+</section>
+
+<section class="shelf" id="toon">
+  <h2>인스타툰·썰. <span>캐릭터 따라 끝까지 넘기게.</span></h2>
+  <div class="scroller-wrap" data-shelf="toon"></div>
+</section>
+
+<section class="shelf" id="how">
+  <h2>작업 방식. <span>한 편이 나오기까지 다섯 단계.</span></h2>
+  <div class="scroller-wrap" data-shelf="how"></div>
+</section>
+
+<section class="quick" aria-label="빠른 링크">
+  <h2>빠른 링크</h2>
+  <div class="pills">
+    <a href="https://www.instagram.com/trend.zip.kr_/" target="_blank" rel="noopener">인스타그램 @trend.zip.kr_</a>
+    <a href="https://github.com/jnsnmn98-ops/blog" target="_blank" rel="noopener">GitHub 저장소</a>
+    <a href="https://glistening-nougat-673c3c.netlify.app" target="_blank" rel="noopener">이전 작업물</a>
+    <a href="../reverse-engineering/apple-kr-store.md">이 페이지의 역설계도</a>
+  </div>
+</section>
+
+<footer>
+  <p>※ '광고' 표시 작업물은 광고 홍보용 카드뉴스예요. 표시가 없는 작업물은 정보형 콘텐츠이며 브랜드와 제휴·후원 관계가 아니에요.</p>
+  <p>¶ 카드 속 제품 사진은 각 브랜드 공식 이미지(ⓒ각 브랜드)이고, 가격·사양은 각 게시물에 적힌 확인일 기준이에요.</p>
+  <p>§ 레이아웃은 쇼핑 홈의 '선반' 구조를 분석해 새로 만들었어요. 다른 회사의 로고·사진·문구·글꼴은 쓰지 않았어요.</p>
+  <p>© 2026 트렌드.zip</p>
+</footer>
+
+<script>
+const IG = "https://www.instagram.com/trend.zip.kr_/";
+const P = id => "https://www.instagram.com/p/" + id + "/";
+const W = [
+  // img, eyebrow, title, line, meta, link, shelves, cat
+  ["c01","NEW · 광고","로지텍 G PRO X2 SUPERSTRIKE","스위치를 없앤 게이밍 마우스.","6장 · 11.05 · 웅장한 장식 테마",P("DfVzOgQAQQJ"),["new","ads"],"테크"],
+  ["c02","NEW · 광고","마이노멀 저당 아이스크림","달콤한 한 스쿱, 당 걱정은 덜고.","7장 · 11.05 · 베이지 캐릭터 테마",P("DfV5xTmmKxQ"),["new","ads"],"식품"],
+  ["c03","NEW","제네시스 G90","뒷좌석까지 설계한 플래그십.","7장 · 11.05 · 세련된 에디토리얼",P("DfV3OJjGGkO"),["new","brand"],"자동차"],
+  ["c04","명품 뷰티","샤넬 N°5","1921년의 향, 다섯 번째 샘플.","4장 · 11.05",P("DfVQujrE7MA"),["brand"],"명품뷰티"],
+  ["c05","명품 뷰티","에르메스 립 케어 밤","에르메스가 만든 무색 립밤.","5장 · 11.05",P("DfVQ8WOEwdf"),["brand"],"명품뷰티"],
+  ["c06","명품 뷰티","설화수 윤조에센스","세안 후 첫 단계, 6세대까지.","5장 · 11.05",P("DfVRL29EwIY"),["brand"],"명품뷰티"],
+  ["c07","브랜드 스토리","에르메스","시작은 가방이 아니라 말안장 공방.","6장 · 11.05",IG,["brand"],"브랜드"],
+  ["c08","광고","갤럭시 S26 FE","플래그십 경험을 더 가볍게.","5장 · 11.04",IG,["ads"],"테크"],
+  ["c09","광고","라네즈 립 슬리핑 마스크","자는 동안 입술 각질 케어.","5장 · 11.04",IG,["ads"],"뷰티"],
+  ["c10","광고","이케아 리사보 테이블","가볍고 단단한 물푸레 식탁.","5장 · 11.04",IG,["ads"],"리빙"],
+  ["c11","광고","정관장 에브리타임","하루 한 포, 홍삼 루틴.","5장 · 11.04",IG,["ads"],"식품"],
+  ["c12","광고","타이레놀정 500mg","두통·발열엔 이렇게.","5장 · 11.04",IG,["ads"],"건강"],
+  ["c13","광고","에스트라 아토베리어365","건조한 피부에 보습막 한 겹.","6장 · 11.04",IG,["ads"],"뷰티"],
+  ["c14","광고","유한양행 모큐락","매일 한 캡슐, 모발 윤기 루틴.","5장 · 11.04",IG,["ads"],"건강"],
+  ["c15","공포썰","야근 메신저","밤 11시 47분, 퇴근한 팀장님의 메시지.","7장 · 11.04",IG,["toon"],"인스타툰"],
+  ["c16","인스타툰","인어 섬의 비밀","캐릭터와 떠나는 섬 여행.","6장 · 11.04",IG,["toon"],"인스타툰"],
+  ["c17","인스타툰","환절기 생존일기","아침엔 덜덜, 낮엔 땀뻘뻘.","7장 · 11.04",IG,["toon"],"인스타툰"],
+];
+const HOW = [
+  ["STEP 1","리서치","공식 홈페이지에서 사양·가격·확인일을 먼저 모아요."],
+  ["STEP 2","레퍼런스","인스타 캐러셀 3개 이상을 끝까지 넘기며 구조를 기록해요."],
+  ["STEP 3","원고·디자인","표지 → 근거 → 가격 → 행동 유도 순서로 장을 짜요."],
+  ["STEP 4","렌더링·검수","1080×1350으로 그리고, 380px 폰 화면에서 다시 확인해요."],
+  ["STEP 5","업로드","캡션을 글자 하나까지 대조한 뒤 게시하고 링크를 남겨요."],
+];
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const card = w => `<a class="card" href="${w[5]}" target="_blank" rel="noopener">
+  <img src="img/${w[0]}.jpg" alt="${esc(w[2])} 카드뉴스 표지" loading="lazy" width="540" height="675">
+  <div class="txt"><div class="eyebrow">${esc(w[1])}</div><h3>${esc(w[2])}</h3><p>${esc(w[3])}</p><div class="meta">${esc(w[4])}</div></div></a>`;
+
+function mountShelf(wrap, html){
+  wrap.innerHTML = `<div class="scroller">${html}</div>
+    <button class="paddle prev" aria-label="이전" disabled>‹</button>
+    <button class="paddle next" aria-label="다음">›</button>`;
+  const sc = wrap.querySelector(".scroller"), prev = wrap.querySelector(".prev"), next = wrap.querySelector(".next");
+  const step = () => Math.max(sc.clientWidth * 0.8, 300);
+  const sync = () => { prev.disabled = sc.scrollLeft < 4; next.disabled = sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 4; };
+  prev.onclick = () => sc.scrollBy({left: -step(), behavior: "smooth"});
+  next.onclick = () => sc.scrollBy({left:  step(), behavior: "smooth"});
+  sc.addEventListener("scroll", sync, {passive:true}); window.addEventListener("resize", sync); sync();
+}
+
+document.querySelectorAll("[data-shelf]").forEach(wrap => {
+  const key = wrap.dataset.shelf;
+  if (key === "how") {
+    mountShelf(wrap, HOW.map(h => `<div class="half"><div class="no">${h[0]}</div><h3>${h[1]}</h3><p>${h[2]}</p></div>`).join(""));
+  } else {
+    mountShelf(wrap, W.filter(w => w[6].includes(key)).map(card).join(""));
+  }
+});
+
+// 카테고리 선반: 카테고리별 첫 작업물을 썸네일로
+const cats = {}; W.forEach(w => { if (!cats[w[7]]) cats[w[7]] = w; });
+const target = {"테크":"ads","식품":"ads","뷰티":"ads","리빙":"ads","건강":"ads","자동차":"brand","명품뷰티":"brand","브랜드":"brand","인스타툰":"toon"};
+document.getElementById("cats").innerHTML = Object.entries(cats).map(([name, w]) =>
+  `<a class="cat" href="#${target[name]}"><img src="img/${w[0]}.jpg" alt="" loading="lazy"><span>${esc(name)}</span></a>`).join("");
+</script>
+</body>
+</html>

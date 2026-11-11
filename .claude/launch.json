@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "url": "http://localhost:8765",
+      "port": 8765
+    },
+    {
+      "name": "lantern-keeper",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": ["-c", "cd /Users/ansangwoo/Documents/Codex/sites/lantern-keeper-idle && PATH=/Users/ansangwoo/Documents/Codex/2026-11-06/new-chat/work/node-runtime/node-v24.22.2-darwin-x64/bin:$PATH npm run dev"],
+      "port": 5173
+    }
+  ]
+}
